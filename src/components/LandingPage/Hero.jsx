@@ -5,7 +5,7 @@ import TypingEffect from '../AnimatedComponents/TypingEffect';
 
 const Hero = () => {
     return (
-        <section id="home" className="relative overflow-x-hidden grid grid-cols-1 md:grid-cols-2 items-center justify-between py-44 px-24">
+        <section id="home" className="relative overflow-x-hidden grid grid-cols-1 md:grid-cols-2 items-center justify-between pt-44 pb-20 px-24">
             <div className='flex justify-center px-10'>
                 <div className='flex flex-col gap-5'>
                     <div className='flex flex-col gap-1'>
@@ -41,7 +41,7 @@ const Hero = () => {
             <img
                 src={InvertedPyramidBlob}
                 alt="Inverted Pyramid Blob"
-                className="absolute -top-8 -right-32 w-[750px]"
+                className="absolute -top-8 -right-32 w-[750px] opacity-50"
             />
         </section>
     );
