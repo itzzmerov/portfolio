@@ -1,9 +1,9 @@
-
+import PortfolioLayout from "./components/PortfolioLayout";
 
 function App() {
   return (
     <div className="App">
-      <p className='font-bold'>HELLO</p>
+      <PortfolioLayout />
     </div>
   );
 }
