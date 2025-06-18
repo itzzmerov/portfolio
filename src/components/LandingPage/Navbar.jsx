@@ -11,14 +11,14 @@ const Navbar = () => {
             <div className="flex justify-between items-center px-20">
                 <div className="flex items-center">
                     <img src={Logo} alt="Logo" className="h-20"/>
-                    <h1 className="font-titillium font-bold text-4xl text-custom-darkish-blue">RoviDev</h1>
+                    <h1 className="font-titillium font-bold text-4xl text-custom-black">RoviDev</h1>
                 </div>
-                <nav className="hidden md:flex space-x-10 items-center justify-center font-league font-medium text-xl">
-                    <a href="#home" className="text-[#001D42]">Home</a>
-                    <a href="#about" className="text-[#001D42]">About</a>
-                    <a href="#portfolio" className="text-[#001D42]">Portfolio</a>
-                    <a href="#contact" className="text-[#001D42]">Contact</a>
-                    <FaGithub className="text-[#001D42] cursor-pointer" size={'30px'} />
+                <nav className="hidden md:flex space-x-10 items-center justify-center font-league font-medium text-xl text-custom-darkish-blue ">
+                    <a href="#home" className="hover:text-custom-pink">Home</a>
+                    <a href="#about" className="hover:text-custom-pink">About</a>
+                    <a href="#portfolio" className="hover:text-custom-pink">Portfolio</a>
+                    <a href="#contact" className="hover:text-custom-pink">Contact</a>
+                    <FaGithub className="hover:text-custom-pink cursor-pointer" size={'30px'} />
                 </nav>
                 <div className="md:hidden">
                     <button onClick={toggleMenu}>

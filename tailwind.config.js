@@ -19,7 +19,21 @@ module.exports = {
         'custom-darkish-blue': '#001D42',
         'custom-pink': '#A0006D',
         'custom-dark-pink': '#70004C',
-      }
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        shadowFloat: {
+          '0%, 100%': { transform: 'scale(1)', opacity: '0.7' },
+          '50%': { transform: 'scale(0.9)', opacity: '0.9' },
+        },
+      },
+      animation: {
+        float: 'float 4s ease-in-out infinite',
+        'shadow-float': 'shadowFloat 4s ease-in-out infinite',
+      },
     },
   },
   plugins: [],
