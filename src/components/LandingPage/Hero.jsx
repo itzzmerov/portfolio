@@ -5,7 +5,7 @@ import TypingEffect from '../AnimatedComponents/TypingEffect';
 
 const Hero = () => {
     return (
-        <section id="home" className="relative overflow-x-hidden grid grid-cols-1 tablet:grid-cols-1 laptop:grid-cols-2 items-center justify-between pt-32 tablet:pt-44 pb-20 px-6 tablet:px-10 laptop:px-24 desktop:px-52 desktop-4k:px-80">
+        <section id="home" className="relative overflow-hidden grid grid-cols-1 tablet:grid-cols-1 laptop:grid-cols-2 items-center justify-between pt-32 tablet:pt-44 pb-20 px-6 tablet:px-10 laptop:px-24 desktop:px-52 desktop-4k:px-80">
 
             {/* Text Area */}
             <div className="order-2 laptop:order-1 flex justify-center text-center laptop:text-left">

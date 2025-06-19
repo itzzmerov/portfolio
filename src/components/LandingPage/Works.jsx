@@ -50,7 +50,7 @@ const portfolioItems = [
 
 const Works = () => {
     return (
-        <section id="portfolio" className="relative overflow-x-hidden px-6 tablet:px-10 laptop:px-24 desktop:px-52 desktop-4k:px-80 py-5 laptop:py-20">
+        <section id="portfolio" className="relative overflow-hidden px-6 tablet:px-10 laptop:px-24 desktop:px-52 desktop-4k:px-80 py-5 laptop:py-20">
             {/* Section Title */}
             <h2 className="relative z-20 text-center text-custom-darkish-blue text-5xl tablet:text-6xl laptop:text-8xl font-titillium font-black underline mb-16">
                 Portfolio
