@@ -1,0 +1,4 @@
+- Add functionality in Contact Us form
+- Add smooth transition for navigation
+- Connect to database (Django or Firebase)
+- Create Admin Dashboard
