@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react';
 
-const TypingEffect = ({ text = "a Web Developer", typingSpeed = 100, deleteSpeed = 60, pauseDuration = 5000 }) => {
+const TypingEffect = ({
+    text = "a Web Developer",
+    typingSpeed = 100,
+    deleteSpeed = 60,
+    pauseDuration = 5000
+}) => {
     const [displayedText, setDisplayedText] = useState('');
     const [isDeleting, setIsDeleting] = useState(false);
 
@@ -27,7 +32,7 @@ const TypingEffect = ({ text = "a Web Developer", typingSpeed = 100, deleteSpeed
     }, [displayedText, isDeleting, text, typingSpeed, pauseDuration, deleteSpeed]);
 
     return (
-        <h1 className="text-6xl font-titillium font-bold text-custom-black">
+        <h1 className="text-3xl tablet:text-4xl laptop-large:text-6xl font-titillium font-bold text-custom-black">
             {displayedText}
             <span className="animate-pulse">|</span>
         </h1>
