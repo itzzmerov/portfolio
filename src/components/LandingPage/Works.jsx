@@ -50,17 +50,14 @@ const portfolioItems = [
 
 const Works = () => {
     return (
-        <section id="portfolio" className="relative overflow-hidden px-6 tablet:px-10 laptop:px-24 desktop:px-52 desktop-4k:px-80 pt-28 laptop:py-20">
-            {/* Section Title */}
+        <section id="portfolio" className="relative overflow-hidden px-6 tablet:px-10 laptop:px-24 desktop:px-52 desktop-4k:px-80 pt-28 laptop:pt-20 pb-0 laptop:pb-10">
             <h2 className="relative z-20 text-center text-custom-darkish-blue text-5xl tablet:text-6xl laptop:text-8xl font-titillium font-black underline mb-16">
                 Portfolio
             </h2>
 
-            {/* Portfolio Grid */}
             <div className="relative z-20 grid grid-cols-1 tablet:grid-cols-2 laptop-large:grid-cols-3 gap-6">
                 {portfolioItems.map((item, index) => (
                     <div key={index} className="border-2 border-custom-black rounded-xl shadow-md">
-                        {/* Project Image */}
                         <div className="relative group w-full h-[150px] tablet:h-[200px] laptop:h-[250px] desktop:h-[270px]">
                             <img
                                 src={item.projImage}
@@ -74,7 +71,6 @@ const Works = () => {
                             </div>
                         </div>
 
-                        {/* Action Buttons */}
                         <div className="flex w-full">
                             <a href={item.demoUrl} target="_blank" rel="noopener noreferrer" className="flex-1">
                                 <button className="w-full text-custom-black hover:text-custom-pink font-montserrat font-semibold border-t-2 border-r-2 border-custom-black p-3 text-sm tablet:text-base">

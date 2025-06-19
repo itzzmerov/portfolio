@@ -11,16 +11,13 @@ const About = () => {
     return (
         <section id="about" className="relative overflow-hidden grid grid-cols-1 tablet:grid-cols-1 laptop:grid-cols-2 items-center justify-between pt-24 laptop-large:pt-28 desktop:pt-44 pb-20 px-6 tablet:px-10 laptop-large:px-24 desktop:px-52 desktop-4k:px-80">
 
-            {/* Image Area */}
             <div className="order-1 laptop:order-1 flex justify-center mb-8 laptop:mb-0 relative z-20">
                 <img src={AboutImg} alt="Profile" className="h-[300px] tablet:h-[500px] laptop-large:h-[650px]" />
             </div>
 
-            {/* Text Area */}
             <div className="order-2 laptop:order-1 flex flex-col gap-3 tablet:gap-5 items-center tablet:items-center laptop:items-start text-center tablet:text-center laptop:text-left px-2 tablet:px-10 relative z-20">
                 <h1 className="font-titillium font-black text-custom-darkish-blue text-5xl tablet:text-7xl laptop-large:text-8xl">About Me</h1>
 
-                {/* Cards */}
                 <div className="grid grid-cols-1 tablet:grid-cols-1 laptop:grid-cols-2 gap-4 py-2 w-full">
                     <div className="flex flex-col justify-center items-center text-center px-6 laptop:px-2 py-4 laptop-large:py-6 border-2 border-custom-darkish-blue rounded-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
                         <p className="flex justify-center pb-2 text-custom-black"><MdOutlineWork fontSize={'30px'} /></p>
@@ -36,12 +33,10 @@ const About = () => {
                     </div>
                 </div>
 
-                {/* Description */}
                 <p className="font-montserrat text-custom-black text-sm tablet:text-lg laptop:text-base laptop-large:text-xl max-w-3xl leading-7 tablet:leading-8">
                     With a strong foundation in web development and a passion for technology education, I’ve dedicated my career to crafting engaging digital experiences and empowering others through knowledge. I believe that learning never stops, and I'm excited to connect with fellow developers, educators, and innovators.
                 </p>
 
-                {/* Socials */}
                 <div className="flex flex-wrap gap-2 tablet:gap-4 justify-center tablet:justify-center laptop-large:justify-start">
                     <a href='https://www.facebook.com/itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaFacebook size={'35px'} /></a>
                     <a href='https://www.instagram.com/itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaInstagram size={'35px'} /></a>
@@ -51,7 +46,6 @@ const About = () => {
                     <a href='https://www.youtube.com/@itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaYoutube size={'35px'} /></a>
                 </div>
 
-                {/* Buttons */}
                 <div className="flex flex-col tablet:flex-row gap-2 tablet:gap-4 justify-center laptop:justify-start">
                     <button className="bg-custom-darkish-blue text-white font-montserrat font-semibold px-8 py-3 rounded-2xl border-2 border-custom-darkish-blue hover:bg-transparent hover:text-custom-darkish-blue">
                         Download CV
