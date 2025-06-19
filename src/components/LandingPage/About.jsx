@@ -7,10 +7,10 @@ import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin, FaFacebookMessenger, Fa
 const About = () => {
     return (
         <section id="about" className="relative overflow-x-hidden grid grid-cols-1 md:grid-cols-2 items-center justify-between py-20 px-24">
-            <div className="flex justify-center">
+            <div className="relative z-20 flex justify-center">
                 <img src={AboutImg} alt="Profile" className="h-[750px] mb-5 md:mb-0" />
             </div>
-            <div className="flex flex-col gap-5 px-10">
+            <div className="relative z-20 flex flex-col gap-5 px-10">
                 <h1 className="font-titillium font-black text-custom-darkish-blue text-8xl">About Me</h1>
 
                 <div className="grid grid-cols-2 gap-3 py-2">
@@ -49,12 +49,12 @@ const About = () => {
             <img
                 src={InvertedPyramidBlob}
                 alt="Triangle Blob"
-                className="absolute bottom-0 left-[-100px] w-[650px] opacity-50 rotate-180"
+                className="absolute bottom-0 left-[-100px] w-[650px] opacity-50 rotate-180 z-10"
             />
             <img
                 src={ManyTriangleBlob}
                 alt="Inverted Pyramid Blob"
-                className="absolute -top-28 right-[-550px] w-[750px] opacity-50"
+                className="absolute -top-28 right-[-550px] w-[750px] opacity-50 z-10"
             />
         </section>
     );

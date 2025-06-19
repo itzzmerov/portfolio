@@ -1,5 +1,7 @@
 import PortfolioWebsite from '../../assets/images/works/portfolio.png'
 import MusicPlayerApp from '../../assets/images/works/music-player-app.png'
+import TriangleBlob from '../../assets/images/triangle-blob.png'
+import ThreeTriangle from '../../assets/images/three-triangle-blob.png'
 
 const portfolioItems = [
     {
@@ -48,9 +50,9 @@ const portfolioItems = [
 
 const Works = () => {
     return (
-        <section id="portfolio" className="px-6 md:px-28 py-20">
-            <h2 className="text-center text-custom-darkish-blue text-8xl font-titillium font-black underline mb-16">Portfolio</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <section id="portfolio" className="relative overflow-x-hidden px-6 md:px-28 py-20">
+            <h2 className="relative z-20 text-center text-custom-darkish-blue text-8xl font-titillium font-black underline mb-16">Portfolio</h2>
+            <div className="relative z-20 grid grid-cols-1 md:grid-cols-3 gap-5">
                 {portfolioItems.map((item, index) => (
                     <div key={index} className="border-2 border-custom-black rounded-xl">
                         <div className="relative group w-full h-[300px]">
@@ -76,6 +78,18 @@ const Works = () => {
                     </div>
                 ))}
             </div>
+
+            {/* Blobs */}
+            <img
+                src={ThreeTriangle}
+                alt="Triangle Blob"
+                className="absolute bottom-32 left-[-180px] w-[500px] opacity-50 z-10"
+            />
+            <img
+                src={TriangleBlob}
+                alt="Inverted Pyramid Blob"
+                className="absolute top-0 right-[-320px] w-[650px] opacity-50 rotate-180 z-10"
+            />
         </section>
     );
 };

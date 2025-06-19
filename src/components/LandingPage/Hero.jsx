@@ -6,7 +6,7 @@ import TypingEffect from '../AnimatedComponents/TypingEffect';
 const Hero = () => {
     return (
         <section id="home" className="relative overflow-x-hidden grid grid-cols-1 md:grid-cols-2 items-center justify-between pt-44 pb-20 px-24">
-            <div className='flex justify-center px-10'>
+            <div className='relative z-20 flex justify-center px-10'>
                 <div className='flex flex-col gap-5'>
                     <div className='flex flex-col gap-1'>
                         <h2 className="text-5xl font-titillium font-bold text-custom-darkish-blue">Hi, I'm...</h2>
@@ -23,7 +23,7 @@ const Hero = () => {
                 </div>
             </div>
 
-            <div className="flex justify-center relative h-[600px] w-full">
+            <div className="flex justify-center relative z-20 h-[600px] w-full">
                 <img
                     src={HeroImg}
                     alt="Floating"
