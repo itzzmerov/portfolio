@@ -22,13 +22,13 @@ const About = () => {
 
                 {/* Cards */}
                 <div className="grid grid-cols-1 tablet:grid-cols-1 laptop:grid-cols-2 gap-4 py-2 w-full">
-                    <div className="flex flex-col justify-center items-center text-center px-6 laptop:px-2 py-4 laptop-large:py-6 border-2 border-custom-darkish-blue rounded-xl">
+                    <div className="flex flex-col justify-center items-center text-center px-6 laptop:px-2 py-4 laptop-large:py-6 border-2 border-custom-darkish-blue rounded-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
                         <p className="flex justify-center pb-2 text-custom-black"><MdOutlineWork fontSize={'30px'} /></p>
                         <p className="font-league text-xl tablet:text-3xl laptop:text-xl desktop:text-2xl">Work Experience</p>
                         <p className="font-montserrat text-sm tablet:text-lg laptop:text-sm desktop:text-lg">IT Instructor</p>
                         <p className="font-montserrat text-sm tablet:text-lg laptop:text-sm desktop:text-lg">Frontend Developer</p>
                     </div>
-                    <div className="flex flex-col justify-center items-center text-center px-6 laptop:px-2 py-4 border-2 border-custom-darkish-blue rounded-xl">
+                    <div className="flex flex-col justify-center items-center text-center px-6 laptop:px-2 py-4 border-2 border-custom-darkish-blue rounded-xl transition-transform duration-300 hover:-translate-y-2 hover:shadow-lg">
                         <p className="flex justify-center pb-2 text-custom-black"><MdSchool fontSize={'30px'} /></p>
                         <p className="font-league text-xl tablet:text-3xl laptop:text-xl desktop:text-2xl">Education</p>
                         <p className="font-montserrat text-sm tablet:text-lg laptop:text-sm desktop:text-lg">B.S. Information Technology</p>
@@ -57,7 +57,7 @@ const About = () => {
                         Download CV
                     </button>
                     <button className="bg-custom-dark-pink text-white font-montserrat font-semibold px-8 py-3 rounded-2xl border-2 border-custom-dark-pink hover:bg-transparent hover:text-custom-dark-pink">
-                        Contact Me
+                        My Experience
                     </button>
                 </div>
             </div>
