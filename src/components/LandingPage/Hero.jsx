@@ -15,7 +15,7 @@ const Hero = () => {
                         <h1 className="text-5xl tablet:text-7xl laptop-large:text-9xl font-titillium font-black text-custom-darkish-blue">John Rovie</h1>
                         <TypingEffect />
                     </div>
-                    <p className="text-sm tablet:text-md laptop-large:text-lg px-2 tablet:px-10 laptop-large:px-0 text-custom-black font-montserrat mt-4">
+                    <p className="text-sm tablet:text-md laptop:text-base laptop-large:text-lg px-2 tablet:px-10 laptop-large:px-0 text-custom-black font-montserrat mt-4">
                         As a passionate web developer and IT instructor from the Philippines, I thrive on creating innovative web solutions and sharing knowledge with the next generation of tech enthusiasts. Dive into my portfolio to explore my projects, skills, and insights. Let's connect and bring your digital ideas to life!
                     </p>
                     <div className="mt-6 tablet:mt-3 flex flex-col tablet:flex-row gap-2 tablet:gap-4 justify-center laptop-large:justify-start">

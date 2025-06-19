@@ -1,60 +1,77 @@
-import AboutImg from '../../assets/images/about-img.png'
-import InvertedPyramidBlob from '../../assets/images/inverted-pyramid-blob.png'
-import ManyTriangleBlob from '../../assets/images/many-triangle-blob.png'
+import AboutImg from '../../assets/images/about-img.png';
+import InvertedPyramidBlob from '../../assets/images/inverted-pyramid-blob.png';
+import ManyTriangleBlob from '../../assets/images/many-triangle-blob.png';
 import { MdOutlineWork, MdSchool } from "react-icons/md";
-import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin, FaFacebookMessenger, FaYoutube } from "react-icons/fa";
+import {
+    FaFacebook, FaInstagram, FaTwitter,
+    FaLinkedin, FaFacebookMessenger, FaYoutube
+} from "react-icons/fa";
 
 const About = () => {
     return (
-        <section id="about" className="relative overflow-x-hidden grid grid-cols-1 md:grid-cols-2 items-center justify-between py-20 px-24">
-            <div className="relative z-20 flex justify-center">
-                <img src={AboutImg} alt="Profile" className="h-[750px] mb-5 md:mb-0" />
-            </div>
-            <div className="relative z-20 flex flex-col gap-5 px-10">
-                <h1 className="font-titillium font-black text-custom-darkish-blue text-8xl">About Me</h1>
+        <section id="about" className="relative overflow-hidden grid grid-cols-1 tablet:grid-cols-1 laptop:grid-cols-2 items-center justify-between pt-10 laptop-large:pt-28 desktop:pt-44 pb-20 px-6 tablet:px-10 laptop-large:px-24 desktop:px-52 desktop-4k:px-80">
 
-                <div className="grid grid-cols-2 gap-3 py-2">
-                    <div className="text-center px-8 py-4 border-2 border-custom-darkish-blue rounded-xl">
-                        <p className="flex justify-center pb-2 text-custom-black"><MdOutlineWork fontSize={'50px'} /></p>
-                        <p className="font-league text-3xl">Work Experience</p>
-                        <p className="font-montserrat text-lg">IT Instructor</p>
-                        <p className="font-montserrat text-lg">Frontend Developer</p>
-                    </div>
-                    <div className="text-center px-8 py-4 border-2 border-custom-darkish-blue rounded-xl">
-                        <p className="flex justify-center pb-2 text-custom-black"><MdSchool fontSize={'50px'} /></p>
-                        <p className="font-league text-3xl">Education</p>
-                        <p className="font-montserrat text-lg">B.S. Information Technology</p>
-                        <p className="font-montserrat text-lg">Batch 2023</p>
-                    </div>
-                </div>
-
-                <p className="font-montserrat text-custom-black text-xl max-w-3xl leading-8">With a strong foundation in web development and a passion for technology education, I’ve dedicated my career to crafting engaging digital experiences and empowering others through knowledge. I believe that learning never stops, and I'm excited to connect with fellow developers, educators, and innovators.</p>
-
-                <div className="flex gap-5">
-                    <a href='https://www.facebook.com/itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaFacebook fontSize={'50px'} /></a>
-                    <a href='https://www.instagram.com/itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaInstagram fontSize={'50px'} /></a>
-                    <a href='https://www.x.com/itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaTwitter fontSize={'50px'} /></a>
-                    <a href='https://www.linkedin.com/' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaLinkedin fontSize={'50px'} /></a>
-                    <a href='https://www.messenger.com/t/itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaFacebookMessenger fontSize={'50px'} /></a>
-                    <a href='https://www.youtube.com/@itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaYoutube fontSize={'50px'} /></a>
-                </div>
-
-                <div className="mt-6 flex space-x-4">
-                    <button className="bg-custom-darkish-blue text-white font-montserrat font-semibold px-10 py-4 rounded-2xl border-2 border-custom-darkish-blue hover:bg-transparent hover:border-2 hover:border-custom-darkish-blue hover:text-custom-darkish-blue">Download CV</button>
-                    <button className="bg-custom-dark-pink text-white font-montserrat font-semibold px-10 py-4 rounded-2xl border-2 border-custom-dark-pink hover:bg-transparent hover:border-2 hover:border-custom-dark-pink hover:text-custom-dark-pink">Contact Me</button>
-                </div>
+            {/* Image Area */}
+            <div className="order-1 laptop:order-1 flex justify-center mb-8 laptop:mb-0 relative z-20">
+                <img src={AboutImg} alt="Profile" className="h-[300px] tablet:h-[500px] laptop-large:h-[650px]" />
             </div>
 
-            {/* Blobs */}
+            {/* Text Area */}
+            <div className="order-2 laptop:order-1 flex flex-col gap-3 tablet:gap-5 items-center tablet:items-center laptop:items-start text-center tablet:text-center laptop:text-left px-2 tablet:px-10 relative z-20">
+                <h1 className="font-titillium font-black text-custom-darkish-blue text-5xl tablet:text-7xl laptop-large:text-8xl">About Me</h1>
+
+                {/* Cards */}
+                <div className="grid grid-cols-1 tablet:grid-cols-1 laptop:grid-cols-2 gap-4 py-2 w-full">
+                    <div className="flex flex-col justify-center items-center text-center px-6 laptop:px-2 py-4 laptop-large:py-6 border-2 border-custom-darkish-blue rounded-xl">
+                        <p className="flex justify-center pb-2 text-custom-black"><MdOutlineWork fontSize={'30px'} /></p>
+                        <p className="font-league text-xl tablet:text-3xl laptop:text-xl desktop:text-2xl">Work Experience</p>
+                        <p className="font-montserrat text-sm tablet:text-lg laptop:text-sm desktop:text-lg">IT Instructor</p>
+                        <p className="font-montserrat text-sm tablet:text-lg laptop:text-sm desktop:text-lg">Frontend Developer</p>
+                    </div>
+                    <div className="flex flex-col justify-center items-center text-center px-6 laptop:px-2 py-4 border-2 border-custom-darkish-blue rounded-xl">
+                        <p className="flex justify-center pb-2 text-custom-black"><MdSchool fontSize={'30px'} /></p>
+                        <p className="font-league text-xl tablet:text-3xl laptop:text-xl desktop:text-2xl">Education</p>
+                        <p className="font-montserrat text-sm tablet:text-lg laptop:text-sm desktop:text-lg">B.S. Information Technology</p>
+                        <p className="font-montserrat text-sm tablet:text-lg laptop:text-sm desktop:text-lg">Batch 2023</p>
+                    </div>
+                </div>
+
+                {/* Description */}
+                <p className="font-montserrat text-custom-black text-sm tablet:text-lg laptop:text-base laptop-large:text-xl max-w-3xl leading-7 tablet:leading-8">
+                    With a strong foundation in web development and a passion for technology education, I’ve dedicated my career to crafting engaging digital experiences and empowering others through knowledge. I believe that learning never stops, and I'm excited to connect with fellow developers, educators, and innovators.
+                </p>
+
+                {/* Socials */}
+                <div className="flex flex-wrap gap-2 tablet:gap-4 justify-center tablet:justify-center laptop-large:justify-start">
+                    <a href='https://www.facebook.com/itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaFacebook size={'35px'} /></a>
+                    <a href='https://www.instagram.com/itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaInstagram size={'35px'} /></a>
+                    <a href='https://www.x.com/itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaTwitter size={'35px'} /></a>
+                    <a href='https://www.linkedin.com/' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaLinkedin size={'35px'} /></a>
+                    <a href='https://www.messenger.com/t/itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaFacebookMessenger size={'35px'} /></a>
+                    <a href='https://www.youtube.com/@itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaYoutube size={'35px'} /></a>
+                </div>
+
+                {/* Buttons */}
+                <div className="flex flex-col tablet:flex-row gap-2 tablet:gap-4 justify-center laptop:justify-start">
+                    <button className="bg-custom-darkish-blue text-white font-montserrat font-semibold px-8 py-3 rounded-2xl border-2 border-custom-darkish-blue hover:bg-transparent hover:text-custom-darkish-blue">
+                        Download CV
+                    </button>
+                    <button className="bg-custom-dark-pink text-white font-montserrat font-semibold px-8 py-3 rounded-2xl border-2 border-custom-dark-pink hover:bg-transparent hover:text-custom-dark-pink">
+                        Contact Me
+                    </button>
+                </div>
+            </div>
+
+            {/* Background Blobs */}
             <img
                 src={InvertedPyramidBlob}
-                alt="Triangle Blob"
-                className="absolute bottom-0 left-[-100px] w-[650px] opacity-50 rotate-180 z-10"
+                alt="Inverted Pyramid Blob"
+                className="absolute bottom-20 laptop:bottom-0 laptop-large:-bottom-28 left-[-80px] w-[400px] tablet:w-[600px] laptop:w-[500px] laptop-large:w-[650px] opacity-50 rotate-180 z-0"
             />
             <img
                 src={ManyTriangleBlob}
-                alt="Inverted Pyramid Blob"
-                className="absolute -top-28 right-[-550px] w-[750px] opacity-50 z-10"
+                alt="Many Triangle Blob"
+                className="absolute top-0 laptop:top-0 laptop-large:-top-20 right-[-250px] tablet:right-[-450px] laptop:right-[-400px] laptop-large:right-[-520px] w-[500px] tablet:w-[650px] laptop:w-[500px] laptop-large:w-[700px] opacity-50 z-0"
             />
         </section>
     );
