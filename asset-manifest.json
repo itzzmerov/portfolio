@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.97265126.css",
+    "main.js": "/portfolio/static/js/main.6c35d02b.js",
+    "static/media/about-img.png": "/portfolio/static/media/about-img.c119963bec5ec9e3ae39.png",
+    "static/media/music-player-app.png": "/portfolio/static/media/music-player-app.42570e625e6cf98f801d.png",
+    "static/media/hero-img.png": "/portfolio/static/media/hero-img.199096ddd1edd29857c0.png",
+    "static/media/portfolio.png": "/portfolio/static/media/portfolio.43ba081cf9e7d872ce77.png",
+    "static/media/inverted-pyramid-blob.png": "/portfolio/static/media/inverted-pyramid-blob.13c990d668ecf36adb69.png",
+    "static/media/many-triangle-blob.png": "/portfolio/static/media/many-triangle-blob.a05609be56b191da8102.png",
+    "static/media/three-triangle-blob.png": "/portfolio/static/media/three-triangle-blob.90c01e006253259ef9e4.png",
+    "static/media/triangle-blob.png": "/portfolio/static/media/triangle-blob.d09ef43138fe6aeb4ddd.png",
+    "static/media/logo.png": "/portfolio/static/media/logo.7f828842b353d2aa657e.png",
+    "index.html": "/portfolio/index.html",
+    "main.97265126.css.map": "/portfolio/static/css/main.97265126.css.map",
+    "main.6c35d02b.js.map": "/portfolio/static/js/main.6c35d02b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.97265126.css",
+    "static/js/main.6c35d02b.js"
+  ]
+}
