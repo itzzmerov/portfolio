@@ -31,17 +31,17 @@ const About = () => {
                 <p className="font-montserrat text-custom-black text-xl max-w-3xl leading-8">With a strong foundation in web development and a passion for technology education, I’ve dedicated my career to crafting engaging digital experiences and empowering others through knowledge. I believe that learning never stops, and I'm excited to connect with fellow developers, educators, and innovators.</p>
 
                 <div className="flex gap-5">
-                    <p className="text-custom-darkish-blue"><FaFacebook fontSize={'50px'} /></p>
-                    <p className="text-custom-darkish-blue"><FaInstagram fontSize={'50px'} /></p>
-                    <p className="text-custom-darkish-blue"><FaTwitter fontSize={'50px'} /></p>
-                    <p className="text-custom-darkish-blue"><FaLinkedin fontSize={'50px'} /></p>
-                    <p className="text-custom-darkish-blue"><FaFacebookMessenger fontSize={'50px'} /></p>
-                    <p className="text-custom-darkish-blue"><FaYoutube fontSize={'50px'} /></p>
+                    <a href='https://www.facebook.com/itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaFacebook fontSize={'50px'} /></a>
+                    <a href='https://www.instagram.com/itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaInstagram fontSize={'50px'} /></a>
+                    <a href='https://www.x.com/itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaTwitter fontSize={'50px'} /></a>
+                    <a href='https://www.linkedin.com/' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaLinkedin fontSize={'50px'} /></a>
+                    <a href='https://www.messenger.com/t/itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaFacebookMessenger fontSize={'50px'} /></a>
+                    <a href='https://www.youtube.com/@itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaYoutube fontSize={'50px'} /></a>
                 </div>
 
                 <div className="mt-6 flex space-x-4">
-                    <button className="bg-custom-darkish-blue text-white font-montserrat font-semibold px-10 py-4 rounded-2xl hover:bg-transparent hover:border-2 hover:border-custom-darkish-blue hover:text-custom-darkish-blue">Download CV</button>
-                    <button className="bg-custom-dark-pink text-white font-montserrat font-semibold px-10 py-4 rounded-2xl hover:bg-transparent hover:border-2 hover:border-custom-dark-pink hover:text-custom-dark-pink">Contact Me</button>
+                    <button className="bg-custom-darkish-blue text-white font-montserrat font-semibold px-10 py-4 rounded-2xl border-2 border-custom-darkish-blue hover:bg-transparent hover:border-2 hover:border-custom-darkish-blue hover:text-custom-darkish-blue">Download CV</button>
+                    <button className="bg-custom-dark-pink text-white font-montserrat font-semibold px-10 py-4 rounded-2xl border-2 border-custom-dark-pink hover:bg-transparent hover:border-2 hover:border-custom-dark-pink hover:text-custom-dark-pink">Contact Me</button>
                 </div>
             </div>
 
@@ -54,7 +54,7 @@ const About = () => {
             <img
                 src={ManyTriangleBlob}
                 alt="Inverted Pyramid Blob"
-                className="absolute -top-28 right-[-550px] w-[750px] opacity-50 z-50"
+                className="absolute -top-28 right-[-550px] w-[750px] opacity-50"
             />
         </section>
     );
