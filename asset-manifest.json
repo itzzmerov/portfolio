@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.a865767a.css",
-    "main.js": "/portfolio/static/js/main.246f131b.js",
+    "main.css": "/portfolio/static/css/main.15ae4ede.css",
+    "main.js": "/portfolio/static/js/main.90e10df7.js",
     "static/media/it-paradigm.png": "/portfolio/static/media/it-paradigm.702c722383f7d5f18e96.png",
     "static/media/coffee-shop.png": "/portfolio/static/media/coffee-shop.184455a43947f5bda894.png",
     "static/media/online-exam-system.png": "/portfolio/static/media/online-exam-system.6aea3fdfd34959f2c63e.png",
@@ -16,11 +16,11 @@
     "static/media/triangle-blob.png": "/portfolio/static/media/triangle-blob.d09ef43138fe6aeb4ddd.png",
     "static/media/logo.png": "/portfolio/static/media/logo.7f828842b353d2aa657e.png",
     "index.html": "/portfolio/index.html",
-    "main.a865767a.css.map": "/portfolio/static/css/main.a865767a.css.map",
-    "main.246f131b.js.map": "/portfolio/static/js/main.246f131b.js.map"
+    "main.15ae4ede.css.map": "/portfolio/static/css/main.15ae4ede.css.map",
+    "main.90e10df7.js.map": "/portfolio/static/js/main.90e10df7.js.map"
   },
   "entrypoints": [
-    "static/css/main.a865767a.css",
-    "static/js/main.246f131b.js"
+    "static/css/main.15ae4ede.css",
+    "static/js/main.90e10df7.js"
   ]
 }
