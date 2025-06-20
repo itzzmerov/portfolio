@@ -61,7 +61,7 @@ const Contact = () => {
                 <a href="https://www.facebook.com/itzzmerov" target="_blank" rel="noreferrer" className="text-custom-darkish-blue hover:text-custom-dark-pink">
                     <FaFacebook fontSize={'40px'} />
                 </a>
-                <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="text-custom-darkish-blue hover:text-custom-dark-pink">
+                <a href="linkedin.com/in/johnroviebalingbing" target="_blank" rel="noreferrer" className="text-custom-darkish-blue hover:text-custom-dark-pink">
                     <FaLinkedin fontSize={'40px'} />
                 </a>
             </div>

@@ -41,7 +41,7 @@ const About = () => {
                     <a href='https://www.facebook.com/itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaFacebook size={'35px'} /></a>
                     <a href='https://www.instagram.com/itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaInstagram size={'35px'} /></a>
                     <a href='https://www.x.com/itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaTwitter size={'35px'} /></a>
-                    <a href='https://www.linkedin.com/' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaLinkedin size={'35px'} /></a>
+                    <a href='linkedin.com/in/johnroviebalingbing' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaLinkedin size={'35px'} /></a>
                     <a href='https://www.messenger.com/t/itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaFacebookMessenger size={'35px'} /></a>
                     <a href='https://www.youtube.com/@itzzmerov' target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaYoutube size={'35px'} /></a>
                 </div>
