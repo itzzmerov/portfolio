@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
 import MusicPlayerApp from '../../assets/images/works/music-player-app.png';
 import DllWebsite from '../../assets/images/works/dll-website.png'
 import OnlineExam from '../../assets/images/works/online-exam-system.png'
@@ -55,6 +58,16 @@ const portfolioItems = [
 ];
 
 const Works = () => {
+    const [projects, setProjects] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:8000/api/projects/')
+            .then((res) => {
+                setProjects(res.data);
+            })
+            .catch((err) => console.error("Error fetching projects:", err));
+    }, []);
+
     return (
         <section id="portfolio" className="relative overflow-hidden px-6 tablet:px-10 laptop:px-24 desktop:px-52 desktop-4k:px-80 pt-28 laptop:pt-20 pb-0 laptop:pb-10">
             <h2 className="relative z-20 text-center text-custom-darkish-blue text-5xl tablet:text-6xl laptop:text-8xl font-titillium font-black underline mb-16">
@@ -62,12 +75,12 @@ const Works = () => {
             </h2>
 
             <div className="relative z-20 grid grid-cols-1 tablet:grid-cols-2 laptop-large:grid-cols-3 gap-6">
-                {portfolioItems.map((item, index) => (
+                {projects.map((item, index) => (
                     <div key={index} className="border-2 border-custom-black rounded-xl shadow-md">
                         <div className="relative group w-full h-[150px] tablet:h-[200px] laptop:h-[250px] desktop:h-[270px]">
                             <img
-                                src={item.projImage}
-                                alt={item.imgAlt}
+                                src={`http://localhost:8000${item.image}`}
+                                alt={item.title}
                                 className="w-full h-full object-cover rounded-t-xl"
                             />
                             <div className="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">

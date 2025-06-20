@@ -1,0 +1,13 @@
+ACTIVATE THE VENV:
+
+    .\venv\Scripts\activate
+
+MIGRATING THE DATABASE:
+
+    python manage.py makemigrations
+    python manage.py migrate
+
+RUNNING THE SERVER:
+
+    py manage.py runserver
+
