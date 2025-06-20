@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import swal from 'sweetalert';
 import { FaFacebook, FaLinkedin, FaFacebookMessenger } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import TriangleBlob from '../../assets/images/triangle-blob.png';
@@ -8,6 +9,38 @@ const Contact = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const formData = {
+            name,
+            email,
+            message
+        };
+
+        try {
+            const res = await fetch("https://formspree.io/f/mgvylvbk", {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (res.ok) {
+                swal("Thank you!", "Your message has been sent successfully!", "success");
+                setName('');
+                setEmail('');
+                setMessage('');
+            } else {
+                swal("Oops!", "Something went wrong. Please try again.", "error");
+            }
+        } catch (err) {
+            swal("Error", "Unable to send the message. Please check your internet or try later.", "error");
+        }
+    };
 
     return (
         <section
@@ -33,7 +66,10 @@ const Contact = () => {
                 </a>
             </div>
 
-            <form className="w-full max-w-xl mx-auto flex flex-col gap-6 justify-center items-center px-2 tablet:px-0">
+            <form
+                onSubmit={handleSubmit}
+                className="w-full max-w-xl mx-auto flex flex-col gap-6 justify-center items-center px-2 tablet:px-0"
+            >
                 <div className="relative w-full">
                     <input
                         type="text"
@@ -45,9 +81,8 @@ const Contact = () => {
                     />
                     <label
                         htmlFor="name"
-                        className={`absolute left-3 px-1 font-montserrat bg-[#EFFAFD] transition-all duration-200 text-custom-pink ${
-                            name ? 'top-[-10px] text-sm' : 'top-3.5 text-base'
-                        } peer-focus:top-[-10px] peer-focus:text-sm`}
+                        className={`absolute left-3 px-1 font-montserrat bg-[#EFFAFD] transition-all duration-200 text-custom-pink ${name ? 'top-[-10px] text-sm' : 'top-3.5 text-base'
+                            } peer-focus:top-[-10px] peer-focus:text-sm`}
                     >
                         Name
                     </label>
@@ -63,9 +98,8 @@ const Contact = () => {
                     />
                     <label
                         htmlFor="email"
-                        className={`absolute left-3 px-1 font-montserrat bg-[#EFFAFD] transition-all duration-200 text-custom-pink ${
-                            email ? 'top-[-10px] text-sm' : 'top-3.5 text-base'
-                        } peer-focus:top-[-10px] peer-focus:text-sm`}
+                        className={`absolute left-3 px-1 font-montserrat bg-[#EFFAFD] transition-all duration-200 text-custom-pink ${email ? 'top-[-10px] text-sm' : 'top-3.5 text-base'
+                            } peer-focus:top-[-10px] peer-focus:text-sm`}
                     >
                         Email Address
                     </label>
@@ -81,9 +115,8 @@ const Contact = () => {
                     ></textarea>
                     <label
                         htmlFor="message"
-                        className={`absolute left-3 px-1 font-montserrat bg-[#EFFAFD] transition-all duration-200 text-custom-pink ${
-                            message ? 'top-[-10px] text-sm' : 'top-3.5 text-base'
-                        } peer-focus:top-[-10px] peer-focus:text-sm`}
+                        className={`absolute left-3 px-1 font-montserrat bg-[#EFFAFD] transition-all duration-200 text-custom-pink ${message ? 'top-[-10px] text-sm' : 'top-3.5 text-base'
+                            } peer-focus:top-[-10px] peer-focus:text-sm`}
                     >
                         Message
                     </label>
