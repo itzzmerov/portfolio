@@ -47,9 +47,15 @@ const About = () => {
                 </div>
 
                 <div className="flex flex-col tablet:flex-row gap-2 tablet:gap-4 justify-center laptop:justify-start">
-                    <button className="bg-custom-darkish-blue text-white font-montserrat font-semibold px-8 py-3 rounded-2xl border-2 border-custom-darkish-blue hover:bg-transparent hover:text-custom-darkish-blue">
-                        Download CV
-                    </button>
+                    <a
+                        href="https://drive.google.com/file/d/1XUWByb6SXQAxwSbnOT3bK_twC-VEq4Xn/view?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <button className="bg-custom-darkish-blue text-white font-montserrat font-semibold px-8 py-3 rounded-2xl border-2 border-custom-darkish-blue hover:bg-transparent hover:border-2 hover:border-custom-darkish-blue hover:text-custom-darkish-blue">
+                            Download CV
+                        </button>
+                    </a>
                     <button className="bg-custom-dark-pink text-white font-montserrat font-semibold px-8 py-3 rounded-2xl border-2 border-custom-dark-pink hover:bg-transparent hover:text-custom-dark-pink">
                         My Experience
                     </button>
