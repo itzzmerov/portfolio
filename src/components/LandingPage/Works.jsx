@@ -1,50 +1,57 @@
 import PortfolioWebsite from '../../assets/images/works/portfolio.png';
 import MusicPlayerApp from '../../assets/images/works/music-player-app.png';
+import DllWebsite from '../../assets/images/works/dll-website.png'
+import OnlineExam from '../../assets/images/works/online-exam-system.png'
+import AppointmentBooking from '../../assets/images/works/appointment-booking.png'
+import CoffeeShop from '../../assets/images/works/coffee-shop.png'
+import ITParadigm from '../../assets/images/works/it-paradigm.png'
+
+// BLOBS
 import TriangleBlob from '../../assets/images/triangle-blob.png';
 import ThreeTriangle from '../../assets/images/three-triangle-blob.png';
 
 const portfolioItems = [
     {
-        title: "Portfolio Website",
-        demoUrl: "https://demo1.example.com",
-        codeUrl: "https://github.com/yourusername/project-one",
-        projImage: PortfolioWebsite,
-        imgAlt: "Portfolio Website"
+        title: "DLL SIS Website",
+        demoUrl: "https://dll.edu.ph",
+        codeUrl: "https://github.com/itzzmerov",
+        projImage: DllWebsite,
+        imgAlt: "DLL SIS Website"
+    },
+    {
+        title: "Coffee Shop Website",
+        demoUrl: "https://kapetanncoffeeshop.infinityfreeapp.com/",
+        codeUrl: "https://github.com/itzzmerov/coffee-shop-website",
+        projImage: CoffeeShop,
+        imgAlt: "Coffee Shop Website"
     },
     {
         title: "Music Player App",
-        demoUrl: "https://demo2.example.com",
-        codeUrl: "https://github.com/yourusername/project-two",
+        demoUrl: "https://itzzmerov.github.io/music-player-app/",
+        codeUrl: "https://github.com/itzzmerov/music-player-app",
         projImage: MusicPlayerApp,
         imgAlt: "Music Player App"
     },
     {
-        title: "Project Three",
-        demoUrl: "https://demo3.example.com",
-        codeUrl: "https://github.com/yourusername/project-three",
-        projImage: PortfolioWebsite,
-        imgAlt: "Portfolio Website"
+        title: "Online Exam System",
+        demoUrl: "https://github.com/itzzmerov/online-examination-system",
+        codeUrl: "https://github.com/itzzmerov/online-examination-system",
+        projImage: OnlineExam,
+        imgAlt: "Online Exam System"
     },
     {
-        title: "Project Four",
-        demoUrl: "https://demo4.example.com",
-        codeUrl: "https://github.com/yourusername/project-four",
-        projImage: PortfolioWebsite,
-        imgAlt: "Portfolio Website"
+        title: "Appointment Booking App",
+        demoUrl: "https://itzzmerov.github.io/appointment-booking-app/",
+        codeUrl: "https://github.com/itzzmerov/appointment-booking-app",
+        projImage: AppointmentBooking,
+        imgAlt: "Appointment Booking App"
     },
     {
-        title: "Project Five",
-        demoUrl: "https://demo5.example.com",
-        codeUrl: "https://github.com/yourusername/project-five",
-        projImage: PortfolioWebsite,
-        imgAlt: "Portfolio Website"
-    },
-    {
-        title: "Project Six",
-        demoUrl: "https://demo6.example.com",
-        codeUrl: "https://github.com/yourusername/project-six",
-        projImage: PortfolioWebsite,
-        imgAlt: "Portfolio Website"
+        title: "IT Paradigm Website",
+        demoUrl: "https://itzzmerov.github.io/itparadigm-landing-page/",
+        codeUrl: "https://github.com/itzzmerov/itparadigm-landing-page",
+        projImage: ITParadigm,
+        imgAlt: "IT Paradigm Website"
     }
 ];
 

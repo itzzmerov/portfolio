@@ -17,10 +17,10 @@ const Hero = () => {
                         As a passionate web developer and IT instructor from the Philippines, I thrive on creating innovative web solutions and sharing knowledge with the next generation of tech enthusiasts. Dive into my portfolio to explore my projects, skills, and insights. Let's connect and bring your digital ideas to life!
                     </p>
                     <div className="mt-6 tablet:mt-3 flex flex-col tablet:flex-row gap-2 tablet:gap-4 justify-center laptop-large:justify-start">
-                        <button className="bg-custom-darkish-blue text-white font-montserrat font-semibold px-8 py-3 rounded-2xl hover:bg-transparent hover:border-2 hover:border-custom-darkish-blue hover:text-custom-darkish-blue">
+                        <button className="bg-custom-darkish-blue text-white font-montserrat font-semibold px-8 py-3 rounded-2xl border-2 border-custom-darkish-blue hover:bg-transparent hover:border-2 hover:border-custom-darkish-blue hover:text-custom-darkish-blue">
                             Download CV
                         </button>
-                        <button className="bg-custom-dark-pink text-white font-montserrat font-semibold px-8 py-3 rounded-2xl hover:bg-transparent hover:border-2 hover:border-custom-dark-pink hover:text-custom-dark-pink">
+                        <button className="bg-custom-dark-pink text-white font-montserrat font-semibold px-8 py-3 rounded-2xl border-2 border-custom-dark-pink hover:bg-transparent hover:border-2 hover:border-custom-dark-pink hover:text-custom-dark-pink">
                             Contact Me
                         </button>
                     </div>
