@@ -1,6 +1,6 @@
 
 from django.contrib import admin
-from .models import Project, HeroSection, HeroTypingText
+from .models import Project, HeroSection, HeroTypingText, AboutMe
 
 admin.site.register(Project)
 
@@ -12,3 +12,5 @@ class HeroTypingTextInline(admin.TabularInline):
 class HeroSectionAdmin(admin.ModelAdmin):
     inlines = [HeroTypingTextInline]
     list_display = ['name']
+
+admin.site.register(AboutMe)

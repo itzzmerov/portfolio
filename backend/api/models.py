@@ -27,3 +27,18 @@ class HeroTypingText(models.Model):
 
     def __str__(self):
         return self.text
+    
+class AboutMe(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
+    facebook = models.CharField(max_length=200)
+    instagram = models.CharField(max_length=200)
+    twitter = models.CharField(max_length=200)
+    linkedin = models.CharField(max_length=200)
+    messenger = models.CharField(max_length=200)
+    youtube = models.CharField(max_length=200)
+    github = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='about_images/')
+
+    def __str__(self):
+        return self.title
