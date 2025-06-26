@@ -1,20 +1,35 @@
+import { useEffect, useState } from 'react';
 import HeroImg from '../../assets/images/hero-img.png';
 import TriangleBlob from '../../assets/images/triangle-blob.png';
 import InvertedPyramidBlob from '../../assets/images/inverted-pyramid-blob.png';
 import TypingEffect from '../AnimatedComponents/TypingEffect';
+import axios from 'axios';
 
 const Hero = () => {
+
+    const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+
+    const [heroData, setHeroData] = useState(null);
+
+    useEffect(() => {
+        axios.get('http://127.0.0.1:8000/api/hero/')
+            .then(res => setHeroData(res.data))
+            .catch(err => console.error(err));
+    }, []);
+
+    if (!heroData) return <div>Loading...</div>;
+
     return (
         <section id="home" className="relative overflow-hidden grid grid-cols-1 tablet:grid-cols-1 laptop:grid-cols-2 items-center justify-between pt-32 tablet:pt-44 pb-20 px-6 tablet:px-10 laptop:px-24 desktop:px-52 desktop-4k:px-80">
             <div className="order-2 laptop:order-1 flex justify-center text-center laptop:text-left">
                 <div className="flex flex-col gap-3 tablet:gap-5 max-w-3xl items-center laptop-large:items-start">
                     <div className="flex flex-col gap-1">
                         <h2 className="text-3xl tablet:text-4xl laptop-large:text-5xl font-titillium font-bold text-custom-darkish-blue">Hi, I'm...</h2>
-                        <h1 className="text-5xl tablet:text-7xl laptop-large:text-9xl font-titillium font-black text-custom-darkish-blue">John Rovie</h1>
-                        <TypingEffect />
+                        <h1 className="text-5xl tablet:text-7xl laptop-large:text-9xl font-titillium font-black text-custom-darkish-blue">{heroData.name}</h1>
+                        <TypingEffect texts={heroData.typing_texts.map(item => item.text)} />
                     </div>
                     <p className="text-sm tablet:text-md laptop:text-base laptop-large:text-lg px-2 tablet:px-10 laptop-large:px-0 text-custom-black font-montserrat mt-4">
-                        As a passionate web developer and IT instructor from the Philippines, I thrive on creating innovative web solutions and sharing knowledge with the next generation of tech enthusiasts. Dive into my portfolio to explore my projects, skills, and insights. Let's connect and bring your digital ideas to life!
+                        {heroData.description}
                     </p>
                     <div className="mt-6 tablet:mt-3 flex flex-col tablet:flex-row gap-2 tablet:gap-4 justify-center laptop-large:justify-start">
                         <a
@@ -36,7 +51,7 @@ const Hero = () => {
             </div>
             <div className="order-1 laptop-large:order-2 flex justify-center relative h-[350px] tablet:h-[500px] laptop-large:h-[600px] w-full mt-0 mb-6 laptop-large:mb-0">
                 <img
-                    src={HeroImg}
+                    src={`${BASE_URL}${heroData.image}`}
                     alt="Floating"
                     className="h-[300px] tablet:h-[480px] laptop-large:h-[570px] hover:h-[580px] animate-float relative z-10"
                 />

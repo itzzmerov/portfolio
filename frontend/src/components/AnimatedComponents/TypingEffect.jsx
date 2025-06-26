@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 const TypingEffect = ({
-    texts = ["a Web Developer", "an IT Instructor"],
+    texts = ["a Web Developer", "an IT Instructor", "A Web Designer"],
     typingSpeed = 100,
     deleteSpeed = 60,
     pauseDuration = 2000

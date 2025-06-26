@@ -12,53 +12,10 @@ import ITParadigm from '../../assets/images/works/it-paradigm.png'
 import TriangleBlob from '../../assets/images/triangle-blob.png';
 import ThreeTriangle from '../../assets/images/three-triangle-blob.png';
 
-const portfolioItems = [
-    {
-        title: "DLL SIS Website",
-        demoUrl: "https://dll.edu.ph",
-        codeUrl: "https://github.com/itzzmerov",
-        projImage: DllWebsite,
-        imgAlt: "DLL SIS Website"
-    },
-    {
-        title: "Coffee Shop Website",
-        demoUrl: "https://kapetanncoffeeshop.infinityfreeapp.com/",
-        codeUrl: "https://github.com/itzzmerov/coffee-shop-website",
-        projImage: CoffeeShop,
-        imgAlt: "Coffee Shop Website"
-    },
-    {
-        title: "Music Player App",
-        demoUrl: "https://itzzmerov.github.io/music-player-app/",
-        codeUrl: "https://github.com/itzzmerov/music-player-app",
-        projImage: MusicPlayerApp,
-        imgAlt: "Music Player App"
-    },
-    {
-        title: "Online Exam System",
-        demoUrl: "https://github.com/itzzmerov/online-examination-system",
-        codeUrl: "https://github.com/itzzmerov/online-examination-system",
-        projImage: OnlineExam,
-        imgAlt: "Online Exam System"
-    },
-    {
-        title: "Appointment Booking App",
-        demoUrl: "https://itzzmerov.github.io/appointment-booking-app/",
-        codeUrl: "https://github.com/itzzmerov/appointment-booking-app",
-        projImage: AppointmentBooking,
-        imgAlt: "Appointment Booking App"
-    },
-    {
-        title: "IT Paradigm Website",
-        demoUrl: "https://itzzmerov.github.io/itparadigm-landing-page/",
-        codeUrl: "https://github.com/itzzmerov/itparadigm-landing-page",
-        projImage: ITParadigm,
-        imgAlt: "IT Paradigm Website"
-    }
-];
-
 const Works = () => {
     const [projects, setProjects] = useState([]);
+    
+    const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
     useEffect(() => {
         axios.get('http://localhost:8000/api/projects/')
@@ -79,7 +36,7 @@ const Works = () => {
                     <div key={index} className="border-2 border-custom-black rounded-xl shadow-md">
                         <div className="relative group w-full h-[150px] tablet:h-[200px] laptop:h-[250px] desktop:h-[270px]">
                             <img
-                                src={`http://localhost:8000${item.image}`}
+                                src={`${BASE_URL}${item.image}`}
                                 alt={item.title}
                                 className="w-full h-full object-cover rounded-t-xl"
                             />
