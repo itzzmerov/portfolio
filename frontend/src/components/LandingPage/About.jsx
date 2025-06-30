@@ -10,7 +10,6 @@ import {
 import axios from 'axios';
 
 const About = () => {
-    const BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
     const [aboutData, setAboutData] = useState(null);
 
