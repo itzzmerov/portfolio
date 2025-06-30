@@ -28,7 +28,7 @@ const Works = () => {
                     <div key={index} className="border-2 border-custom-black rounded-xl shadow-md">
                         <div className="relative group w-full h-[150px] tablet:h-[200px] laptop:h-[250px] desktop:h-[270px]">
                             <img
-                                src={`${BASE_URL}${item.image}`}
+                                src={item.image}
                                 alt={item.title}
                                 className="w-full h-full object-cover rounded-t-xl"
                             />

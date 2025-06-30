@@ -11,7 +11,7 @@ const Hero = () => {
     const [heroData, setHeroData] = useState(null);
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/hero/')
+        axios.get('http://127.0.0.1:8000/api/herosection/1/')
             .then(res => setHeroData(res.data))
             .catch(err => console.error(err));
     }, []);
@@ -50,7 +50,7 @@ const Hero = () => {
             </div>
             <div className="order-1 laptop-large:order-2 flex justify-center relative h-[350px] tablet:h-[500px] laptop-large:h-[600px] w-full mt-0 mb-6 laptop-large:mb-0">
                 <img
-                    src={`${BASE_URL}${heroData.image}`}
+                    src={heroData.image}
                     alt="Floating"
                     className="h-[300px] tablet:h-[480px] laptop-large:h-[570px] hover:h-[580px] animate-float relative z-10"
                 />

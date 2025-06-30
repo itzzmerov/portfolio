@@ -15,7 +15,7 @@ const About = () => {
     const [aboutData, setAboutData] = useState(null);
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/about/')
+        axios.get('http://127.0.0.1:8000/api/aboutme/1/')
             .then(res => setAboutData(res.data))
             .catch(err => console.error(err));
     }, []);
@@ -26,7 +26,7 @@ const About = () => {
         <section id="about" className="relative overflow-hidden grid grid-cols-1 tablet:grid-cols-1 laptop:grid-cols-2 items-center justify-between pt-24 laptop-large:pt-28 desktop:pt-44 pb-20 px-6 tablet:px-10 laptop-large:px-24 desktop:px-52 desktop-4k:px-80">
 
             <div className="order-1 laptop:order-1 flex justify-center mb-8 laptop:mb-0 relative z-20">
-                <img src={`${BASE_URL}${aboutData.image}`} alt="Profile" className="h-[300px] tablet:h-[500px] laptop-large:h-[650px]" />
+                <img src={aboutData.image} alt="Profile" className="h-[300px] tablet:h-[500px] laptop-large:h-[650px]" />
             </div>
 
             <div className="order-2 laptop:order-1 flex flex-col gap-3 tablet:gap-5 items-center tablet:items-center laptop:items-start text-center tablet:text-center laptop:text-left px-2 tablet:px-10 relative z-20">

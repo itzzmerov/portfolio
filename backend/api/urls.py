@@ -1,8 +1,13 @@
-from django.urls import path
-from .views import ProjectList, HeroSectionView, AboutMeView
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import HeroSectionViewSet, AboutMeViewSet, ProjectViewSet, CustomAuthToken
+
+router = DefaultRouter()
+router.register(r'herosection', HeroSectionViewSet, basename='herosection')
+router.register(r'aboutme', AboutMeViewSet, basename='aboutme')
+router.register(r'projects', ProjectViewSet, basename='projects')
 
 urlpatterns = [
-    path('projects/', ProjectList.as_view(), name='project-list'),
-    path('hero/', HeroSectionView.as_view(), name='hero-section'),
-    path('about/', AboutMeView.as_view(), name='about-section'),
+    path('', include(router.urls)),
+    path('login/', CustomAuthToken.as_view(), name='api-login'),
 ]
