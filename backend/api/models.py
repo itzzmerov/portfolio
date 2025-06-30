@@ -22,8 +22,8 @@ class HeroSection(models.Model):
         return self.name
 
 class HeroTypingText(models.Model):
-    hero = models.ForeignKey(HeroSection, related_name='typing_texts', on_delete=models.CASCADE)
-    text = models.CharField(max_length=100)
+    hero_section = models.ForeignKey(HeroSection, related_name="typing_texts", on_delete=models.CASCADE)
+    text = models.CharField(max_length=255)
 
     def __str__(self):
         return self.text
