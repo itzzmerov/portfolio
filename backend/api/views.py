@@ -27,7 +27,7 @@ class AboutMeViewSet(viewsets.ModelViewSet):
         return [permissions.IsAuthenticated()]
 
 class ProjectViewSet(viewsets.ModelViewSet):
-    queryset = Project.objects.all().order_by('-id')
+    queryset = Project.objects.all()
     serializer_class = ProjectSerializer
     parser_classes = [MultiPartParser, FormParser]
 

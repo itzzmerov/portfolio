@@ -25,7 +25,7 @@ const Login = () => {
       localStorage.setItem("authToken", token);
 
       // Redirect to AdminDashboard
-      navigate("/admin/dashboard");
+      navigate("/admin/dashboard/hero");
     } catch (err) {
       console.error(err);
       setError("Invalid credentials. Please try again.");

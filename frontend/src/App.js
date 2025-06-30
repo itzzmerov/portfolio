@@ -11,6 +11,7 @@ function App() {
     <Router>
       <Routes>
         {/* Public Landing Page */}
+        <Route path="/" element={<PortfolioLayout />} />
         <Route path="/portfolio" element={<PortfolioLayout />} />
 
         {/* Admin Login */}
