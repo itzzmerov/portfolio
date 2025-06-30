@@ -1,13 +1,5 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
-import MusicPlayerApp from '../../assets/images/works/music-player-app.png';
-import DllWebsite from '../../assets/images/works/dll-website.png'
-import OnlineExam from '../../assets/images/works/online-exam-system.png'
-import AppointmentBooking from '../../assets/images/works/appointment-booking.png'
-import CoffeeShop from '../../assets/images/works/coffee-shop.png'
-import ITParadigm from '../../assets/images/works/it-paradigm.png'
-
 // BLOBS
 import TriangleBlob from '../../assets/images/triangle-blob.png';
 import ThreeTriangle from '../../assets/images/three-triangle-blob.png';

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import HeroImg from '../../assets/images/hero-img.png';
 import TriangleBlob from '../../assets/images/triangle-blob.png';
 import InvertedPyramidBlob from '../../assets/images/inverted-pyramid-blob.png';
 import TypingEffect from '../AnimatedComponents/TypingEffect';

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import AboutImg from '../../assets/images/about-img.png';
 import InvertedPyramidBlob from '../../assets/images/inverted-pyramid-blob.png';
 import ManyTriangleBlob from '../../assets/images/many-triangle-blob.png';
 import { MdOutlineWork, MdSchool } from "react-icons/md";
