@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Project, HeroSection, HeroTypingText, AboutMe
+from .models import Project, HeroSection, HeroTypingText, AboutMe, Service
 
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
@@ -47,4 +47,9 @@ class HeroSectionSerializer(serializers.ModelSerializer):
 class AboutMeSerializer(serializers.ModelSerializer):
     class Meta:
         model = AboutMe
+        fields = '__all__'
+        
+class ServiceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Service
         fields = '__all__'

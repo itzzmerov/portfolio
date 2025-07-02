@@ -3,8 +3,8 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
-from .models import Project, HeroSection, AboutMe
-from .serializers import ProjectSerializer, HeroSectionSerializer, AboutMeSerializer
+from .models import Project, HeroSection, AboutMe, Service
+from .serializers import ProjectSerializer, HeroSectionSerializer, AboutMeSerializer, ServiceSerializer
 
 class HeroSectionViewSet(viewsets.ModelViewSet):
     queryset = HeroSection.objects.all()
@@ -47,3 +47,12 @@ class CustomAuthToken(ObtainAuthToken):
             'user_id': user.pk,
             'email': user.email
         })
+        
+class ServiceViewSet(viewsets.ModelViewSet):
+    queryset = Service.objects.all()
+    serializer_class = ServiceSerializer
+
+    def get_permissions(self):
+        if self.request.method in ['GET']:
+            return [permissions.AllowAny()]
+        return [permissions.IsAuthenticated()]

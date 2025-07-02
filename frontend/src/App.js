@@ -5,6 +5,7 @@ import AdminDashboardLayout from "./components/AdminDashboard/AdminDashboardLayo
 import HeroForm from "./components/AdminDashboard/HeroForm";
 import AboutForm from "./components/AdminDashboard/AboutForm";
 import WorksTable from "./components/AdminDashboard/WorksTable";
+import ServicesForm from "./components/AdminDashboard/ServicesForm";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="hero" element={<HeroForm />} />
           <Route path="about" element={<AboutForm />} />
           <Route path="works" element={<WorksTable />} />
+          <Route path="services" element={<ServicesForm />} />
         </Route>
       </Routes>
     </Router>

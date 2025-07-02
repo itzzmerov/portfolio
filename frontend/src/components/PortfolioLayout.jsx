@@ -5,6 +5,7 @@ import About from './LandingPage/About'
 import Works from './LandingPage/Works'
 import Contact from './LandingPage/Contact'
 import Footer from './LandingPage/Footer'
+import Services from './LandingPage/Services'
 
 const PortfolioLayout = () => {
     return (
@@ -12,6 +13,7 @@ const PortfolioLayout = () => {
             <Navbar />
             <Hero />
             <About />
+            <Services />
             <Works />
             <Contact />
             <Footer />

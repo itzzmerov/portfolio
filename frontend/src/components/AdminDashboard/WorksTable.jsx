@@ -217,13 +217,13 @@ const WorksTable = () => {
               <td className="border p-2 space-x-2">
                 <button
                   onClick={() => handleEdit(p)}
-                  className="text-blue-500"
+                  className="text-custom-white bg-custom-blue hover:bg-custom-darkish-blue px-5 py-1 rounded-lg"
                 >
                   Edit
                 </button>
                 <button
                   onClick={() => handleDelete(p.id)}
-                  className="text-red-500"
+                  className="text-custom-white bg-red-500 hover:bg-red-800 px-5 py-1 rounded-lg"
                 >
                   Delete
                 </button>
@@ -326,7 +326,7 @@ const WorksTable = () => {
                     setEditingId(null);
                     setImagePreviewUrl("");
                   }}
-                  className="text-gray-500 px-4 py-2 rounded"
+                  className="text-gray-500 hover:text-red-500 px-4 py-2 rounded"
                 >
                   Cancel
                 </button>
