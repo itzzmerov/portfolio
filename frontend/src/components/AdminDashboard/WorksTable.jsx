@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const WorksTable = () => {
   const [projects, setProjects] = useState([]);
@@ -28,7 +29,6 @@ const WorksTable = () => {
   useEffect(() => {
     fetchProjects();
 
-    // Close modal on Escape
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
         setShowForm(false);
@@ -40,15 +40,39 @@ const WorksTable = () => {
   }, []);
 
   const handleDelete = async (id) => {
-    if (!window.confirm("Delete this project?")) return;
+    const confirm = await Swal.fire({
+      title: "Are you sure?",
+      text: "This project will be deleted permanently.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+    });
+
+    if (!confirm.isConfirmed) return;
+
     try {
       await axios.delete(`http://localhost:8000/api/projects/${id}/`, {
         headers: { Authorization: `Token ${token}` },
       });
       fetchProjects();
+
+      Swal.fire({
+        icon: "success",
+        title: "Deleted!",
+        text: "Project has been deleted.",
+        timer: 1500,
+        showConfirmButton: false,
+      });
+
     } catch (err) {
       console.error(err);
-      alert("Error deleting project.");
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Failed to delete project.",
+      });
     }
   };
 
@@ -109,7 +133,13 @@ const WorksTable = () => {
             },
           }
         );
-        alert("Project updated successfully.");
+        Swal.fire({
+          icon: "success",
+          title: "Updated!",
+          text: "Project updated successfully.",
+          timer: 1500,
+          showConfirmButton: false,
+        });
       } else {
         await axios.post(`http://localhost:8000/api/projects/`, formData, {
           headers: {
@@ -117,14 +147,24 @@ const WorksTable = () => {
             "Content-Type": "multipart/form-data",
           },
         });
-        alert("Project created successfully.");
+        Swal.fire({
+          icon: "success",
+          title: "Created!",
+          text: "Project created successfully.",
+          timer: 1500,
+          showConfirmButton: false,
+        });
       }
       fetchProjects();
       setShowForm(false);
       setEditingId(null);
     } catch (err) {
       console.error(err);
-      alert("Error saving project.");
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Failed to save project.",
+      });
     } finally {
       setLoading(false);
     }
