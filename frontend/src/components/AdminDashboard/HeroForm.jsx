@@ -90,43 +90,63 @@ const HeroForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow space-y-4">
-      <h2 className="text-xl font-semibold text-custom-darkish-blue">Edit Hero Section</h2>
-      <input
-        type="text"
-        name="name"
-        placeholder="Name"
-        value={form.name}
-        onChange={handleChange}
-        className="w-full border p-2 rounded"
-      />
-      <textarea
-        name="description"
-        placeholder="Description"
-        value={form.description}
-        onChange={handleChange}
-        className="w-full border p-2 rounded"
-      />
-      <input
-        type="text"
-        name="positions"
-        placeholder="Positions (comma separated)"
-        value={form.positions}
-        onChange={handleChange}
-        className="w-full border p-2 rounded"
-      />
-      <input
-        type="file"
-        name="image"
-        onChange={handleChange}
-        className="w-full"
-      />
-      <button
-        type="submit"
-        disabled={loading}
-        className="bg-custom-darkish-blue text-white px-4 py-2 rounded"
-      >
-        {loading ? "Saving..." : "Save"}
-      </button>
+      <h2 className="text-xl font-semibold text-custom-darkish-blue">Edit Hero Content</h2>
+      <div className="flex flex-col gap-2">
+        <label>Name:</label>
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={form.name}
+          onChange={handleChange}
+          className="w-full border px-4 py-2 rounded"
+        />
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <label>Description:</label>
+        <textarea
+          name="description"
+          placeholder="Description"
+          value={form.description}
+          onChange={handleChange}
+          rows="3"
+          className="w-full border px-4 py-2 rounded"
+        />
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <label>Positions: <span className="italic opacity-50">(separate with comma)</span></label>
+        <input
+          type="text"
+          name="positions"
+          placeholder="Positions (comma separated)"
+          value={form.positions}
+          onChange={handleChange}
+          className="w-full border px-4 py-2 rounded"
+        />
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <label>Hero Image:</label>
+        <input
+          type="file"
+          name="image"
+          onChange={handleChange}
+          className="w-full"
+        />
+      </div>
+
+      <div className="w-full flex justify-center">
+        <button
+          type="submit"
+          disabled={loading}
+          className="bg-custom-darkish-blue text-white px-8 py-3 w-[50%] rounded border-2 border-custom-darkish-blue hover:bg-transparent hover:text-custom-darkish-blue hover:font-bold"
+        >
+          {loading ? "Saving..." : "Save"}
+        </button>
+      </div>
+
     </form>
   );
 };

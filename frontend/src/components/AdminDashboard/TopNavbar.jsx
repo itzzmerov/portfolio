@@ -13,7 +13,7 @@ const TopNavbar = () => {
       <h1 className="text-lg font-semibold text-custom-darkish-blue">Dashboard</h1>
       <button
         onClick={handleLogout}
-        className="bg-custom-dark-pink text-white px-4 py-2 rounded hover:bg-red-600"
+        className="bg-custom-darkish-blue text-white px-4 py-2 rounded hover:bg-custom-blue"
       >
         Logout
       </button>
