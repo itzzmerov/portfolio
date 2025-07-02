@@ -14,11 +14,11 @@ const AdminDashboardLayout = () => {
   }, [token, navigate]);
 
   return (
-    <div className="flex min-h-screen overflow-hidden">
+    <div className="flex h-screen overflow-hidden">
       <Sidebar />
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col overflow-hidden">
         <TopNavbar />
-        <main className="p-6 bg-custom-white flex-1 overflow-y-auto">
+        <main className="flex-1 overflow-y-auto p-6 bg-custom-white">
           <Outlet />
         </main>
       </div>

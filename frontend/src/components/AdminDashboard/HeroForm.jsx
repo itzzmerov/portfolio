@@ -137,15 +137,13 @@ const HeroForm = () => {
         />
       </div>
 
-      <div className="w-full flex justify-center">
-        <button
-          type="submit"
-          disabled={loading}
-          className="bg-custom-darkish-blue text-white px-8 py-3 w-[50%] rounded border-2 border-custom-darkish-blue hover:bg-transparent hover:text-custom-darkish-blue hover:font-bold"
-        >
-          {loading ? "Saving..." : "Save"}
-        </button>
-      </div>
+      <button
+        type="submit"
+        disabled={loading}
+        className="bg-custom-darkish-blue text-white px-7 py-2 rounded border-2 border-custom-darkish-blue hover:bg-transparent hover:text-custom-darkish-blue hover:font-bold"
+      >
+        {loading ? "Saving..." : "Save"}
+      </button>
 
     </form>
   );

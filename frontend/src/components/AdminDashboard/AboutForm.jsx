@@ -86,27 +86,142 @@ const AboutForm = () => {
   return (
     <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow space-y-4">
       <h2 className="text-xl font-semibold text-custom-darkish-blue">Edit About Section</h2>
-      {["title", "description", "facebook", "instagram", "twitter", "linkedin", "messenger", "youtube", "github"].map((field) => (
+
+      {/* Title */}
+      <div className="flex flex-col gap-2">
+        <label htmlFor="title">Title:</label>
         <input
-          key={field}
           type="text"
-          name={field}
-          placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
-          value={form[field]}
+          name="title"
+          id="title"
+          placeholder="Title"
+          value={form.title}
           onChange={handleChange}
           className="w-full border p-2 rounded"
         />
-      ))}
-      <input
-        type="file"
-        name="image"
-        onChange={handleChange}
-        className="w-full"
-      />
+      </div>
+
+      {/* Description */}
+      <div className="flex flex-col gap-2">
+        <label htmlFor="description">Description:</label>
+        <textarea
+          name="description"
+          id="description"
+          placeholder="Description"
+          value={form.description}
+          onChange={handleChange}
+          rows="3"
+          className="w-full border p-2 rounded"
+        />
+      </div>
+
+      {/* Social Links in 2 Columns */}
+      <div>
+        <label className="block mb-2 font-semibold">Social Links</label>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="flex flex-col gap-2">
+            <label htmlFor="facebook">Facebook:</label>
+            <input
+              type="text"
+              name="facebook"
+              id="facebook"
+              placeholder="Facebook"
+              value={form.facebook}
+              onChange={handleChange}
+              className="w-full border p-2 rounded"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="instagram">Instagram:</label>
+            <input
+              type="text"
+              name="instagram"
+              id="instagram"
+              placeholder="Instagram"
+              value={form.instagram}
+              onChange={handleChange}
+              className="w-full border p-2 rounded"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="twitter">Twitter:</label>
+            <input
+              type="text"
+              name="twitter"
+              id="twitter"
+              placeholder="Twitter"
+              value={form.twitter}
+              onChange={handleChange}
+              className="w-full border p-2 rounded"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="linkedin">LinkedIn:</label>
+            <input
+              type="text"
+              name="linkedin"
+              id="linkedin"
+              placeholder="LinkedIn"
+              value={form.linkedin}
+              onChange={handleChange}
+              className="w-full border p-2 rounded"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="messenger">Messenger:</label>
+            <input
+              type="text"
+              name="messenger"
+              id="messenger"
+              placeholder="Messenger"
+              value={form.messenger}
+              onChange={handleChange}
+              className="w-full border p-2 rounded"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="youtube">YouTube:</label>
+            <input
+              type="text"
+              name="youtube"
+              id="youtube"
+              placeholder="YouTube"
+              value={form.youtube}
+              onChange={handleChange}
+              className="w-full border p-2 rounded"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label htmlFor="github">GitHub:</label>
+            <input
+              type="text"
+              name="github"
+              id="github"
+              placeholder="GitHub"
+              value={form.github}
+              onChange={handleChange}
+              className="w-full border p-2 rounded"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Image Upload */}
+      <div className="flex flex-col gap-2">
+        <label htmlFor="image">About Me Image:</label>
+        <input
+          type="file"
+          name="image"
+          id="image"
+          onChange={handleChange}
+          className="w-full"
+        />
+      </div>
+
       <button
         type="submit"
         disabled={loading}
-        className="bg-custom-darkish-blue text-white px-4 py-2 rounded"
+        className="bg-custom-darkish-blue text-white px-7 py-2 rounded border-2 border-custom-darkish-blue hover:bg-transparent hover:text-custom-darkish-blue hover:font-bold"
       >
         {loading ? "Saving..." : "Save"}
       </button>
