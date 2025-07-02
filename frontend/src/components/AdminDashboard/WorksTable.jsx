@@ -14,6 +14,7 @@ const WorksTable = () => {
   const [editingId, setEditingId] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [imagePreviewUrl, setImagePreviewUrl] = useState("");
 
   const token = localStorage.getItem("authToken");
 
@@ -33,6 +34,7 @@ const WorksTable = () => {
       if (e.key === "Escape") {
         setShowForm(false);
         setEditingId(null);
+        setImagePreviewUrl("");
       }
     };
     window.addEventListener("keydown", handleKeyDown);
@@ -65,7 +67,6 @@ const WorksTable = () => {
         timer: 1500,
         showConfirmButton: false,
       });
-
     } catch (err) {
       console.error(err);
       Swal.fire({
@@ -86,6 +87,7 @@ const WorksTable = () => {
     });
     setEditingId(project.id);
     setShowForm(true);
+    setImagePreviewUrl(project.image || "");
   };
 
   const handleAddNew = () => {
@@ -98,14 +100,29 @@ const WorksTable = () => {
     });
     setEditingId(null);
     setShowForm(true);
+    setImagePreviewUrl("");
   };
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-    setForm((prev) => ({
-      ...prev,
-      [name]: files ? files[0] : value,
-    }));
+
+    if (files && files[0]) {
+      setForm((prev) => ({
+        ...prev,
+        [name]: files[0],
+      }));
+
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreviewUrl(reader.result);
+      };
+      reader.readAsDataURL(files[0]);
+    } else {
+      setForm((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -158,6 +175,7 @@ const WorksTable = () => {
       fetchProjects();
       setShowForm(false);
       setEditingId(null);
+      setImagePreviewUrl("");
     } catch (err) {
       console.error(err);
       Swal.fire({
@@ -217,12 +235,13 @@ const WorksTable = () => {
 
       {/* Modal */}
       {showForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white rounded shadow-lg p-6 w-full max-w-lg relative">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center overflow-y-auto z-50">
+          <div className="bg-white rounded shadow-lg p-6 w-full max-w-lg relative max-h-[90vh] overflow-y-auto">
             <button
               onClick={() => {
                 setShowForm(false);
                 setEditingId(null);
+                setImagePreviewUrl("");
               }}
               className="absolute top-2 right-2 text-gray-600 hover:text-black text-2xl"
             >
@@ -232,48 +251,71 @@ const WorksTable = () => {
               {editingId ? "Edit Project" : "Add New Project"}
             </h3>
             <form onSubmit={handleSubmit} className="space-y-3">
-              <input
-                type="text"
-                name="title"
-                placeholder="Title"
-                value={form.title}
-                onChange={handleChange}
-                className="w-full border p-2 rounded"
-              />
-              <textarea
-                name="description"
-                placeholder="Description"
-                value={form.description}
-                onChange={handleChange}
-                className="w-full border p-2 rounded"
-              />
-              <input
-                type="text"
-                name="demo_url"
-                placeholder="Demo URL"
-                value={form.demo_url}
-                onChange={handleChange}
-                className="w-full border p-2 rounded"
-              />
-              <input
-                type="text"
-                name="code_url"
-                placeholder="Code URL"
-                value={form.code_url}
-                onChange={handleChange}
-                className="w-full border p-2 rounded"
-              />
-              <input
-                type="file"
-                name="image"
-                onChange={handleChange}
-                className="w-full"
-              />
+              <div>
+                <label>Title:</label>
+                <input
+                  type="text"
+                  name="title"
+                  value={form.title}
+                  onChange={handleChange}
+                  className="w-full border p-2 rounded"
+                />
+              </div>
+
+              <div>
+                <label>Description:</label>
+                <textarea
+                  name="description"
+                  value={form.description}
+                  onChange={handleChange}
+                  className="w-full border p-2 rounded"
+                />
+              </div>
+
+              <div>
+                <label>Demo URL:</label>
+                <input
+                  type="text"
+                  name="demo_url"
+                  value={form.demo_url}
+                  onChange={handleChange}
+                  className="w-full border p-2 rounded"
+                />
+              </div>
+
+              <div>
+                <label>Code URL:</label>
+                <input
+                  type="text"
+                  name="code_url"
+                  value={form.code_url}
+                  onChange={handleChange}
+                  className="w-full border p-2 rounded"
+                />
+              </div>
+
+              <div>
+                <label>Image:</label>
+                <input
+                  type="file"
+                  name="image"
+                  onChange={handleChange}
+                  className="w-full"
+                />
+                {imagePreviewUrl && (
+                  <img
+                    src={imagePreviewUrl}
+                    alt="Preview"
+                    className="mt-2 w-60 h-auto rounded border"
+                  />
+                )}
+              </div>
+
               <div className="flex space-x-2">
                 <button
                   type="submit"
                   disabled={loading}
-                  className="bg-custom-darkish-blue text-white px-4 py-2 rounded"
+                  className="bg-custom-darkish-blue text-white px-4 py-2 rounded-xl border-2 border-custom-darkish-blue hover:bg-transparent hover:text-custom-darkish-blue"
                 >
                   {loading ? "Saving..." : "Save"}
                 </button>
@@ -282,6 +324,7 @@ const WorksTable = () => {
                   onClick={() => {
                     setShowForm(false);
                     setEditingId(null);
+                    setImagePreviewUrl("");
                   }}
                   className="text-gray-500 px-4 py-2 rounded"
                 >
