@@ -14,7 +14,7 @@ const About = () => {
     const [aboutData, setAboutData] = useState(null);
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/aboutme/1/')
+        axios.get('https://rovidev.pythonanywhere.com/api/aboutme/1/')
             .then(res => setAboutData(res.data))
             .catch(err => console.error(err));
     }, []);

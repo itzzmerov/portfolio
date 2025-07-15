@@ -24,7 +24,7 @@ const AboutForm = () => {
   useEffect(() => {
     const fetchAbout = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/aboutme/");
+        const res = await axios.get("https://rovidev.pythonanywhere.com/api/aboutme/");
         const about = res.data[0];
         if (about) {
           const initial = {

@@ -18,7 +18,7 @@ const HeroForm = () => {
   useEffect(() => {
     const fetchHero = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/herosection/");
+        const res = await axios.get("https://rovidev.pythonanywhere.com/api/herosection/");
         const hero = res.data[0];
         if (hero) {
           const initial = {

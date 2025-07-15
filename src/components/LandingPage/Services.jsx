@@ -18,7 +18,7 @@ const Services = () => {
     useEffect(() => {
         const fetchServices = async () => {
             try {
-                const res = await axios.get("http://localhost:8000/api/services/");
+                const res = await axios.get("https://rovidev.pythonanywhere.com/api/services/");
                 setServices(res.data);
             } catch (error) {
                 console.error("Failed to fetch services", error);

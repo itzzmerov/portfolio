@@ -17,7 +17,7 @@ const ServicesForm = () => {
 
     const fetchServices = async () => {
         try {
-            const res = await axios.get("http://localhost:8000/api/services/");
+            const res = await axios.get("https://rovidev.pythonanywhere.com/api/services/");
             setServices(res.data);
         } catch (err) {
             console.error(err);

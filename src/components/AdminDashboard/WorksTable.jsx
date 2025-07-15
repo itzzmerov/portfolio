@@ -20,7 +20,7 @@ const WorksTable = () => {
 
   const fetchProjects = async () => {
     try {
-      const res = await axios.get("http://localhost:8000/api/projects/");
+      const res = await axios.get("https://rovidev.pythonanywhere.com/api/projects/");
       setProjects(res.data);
     } catch (err) {
       console.error(err);

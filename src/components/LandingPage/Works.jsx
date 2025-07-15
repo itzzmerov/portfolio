@@ -10,7 +10,7 @@ const Works = () => {
 
     useEffect(() => {
         axios
-            .get('http://localhost:8000/api/projects/')
+            .get('https://rovidev.pythonanywhere.com/api/projects/')
             .then((res) => {
                 setProjects(res.data);
             })

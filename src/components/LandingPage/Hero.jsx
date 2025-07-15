@@ -9,7 +9,7 @@ const Hero = () => {
     const [heroData, setHeroData] = useState(null);
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/herosection/1/')
+        axios.get('https://rovidev.pythonanywhere.com/api/herosection/1/')
             .then(res => setHeroData(res.data))
             .catch(err => console.error(err));
     }, []);
