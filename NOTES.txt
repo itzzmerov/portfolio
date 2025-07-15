@@ -1,0 +1,8 @@
+- Connect to database (Django or Firebase)
+- Create Admin Dashboard
+
+
+
+
+COMMANDS TO DEPLOY PORTFOLIO WEBSITE:
+    npm run deploy
