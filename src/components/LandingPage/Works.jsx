@@ -36,40 +36,30 @@ const Works = () => {
                         key={index}
                         className="border-2 border-custom-black rounded-xl shadow-md"
                     >
-                        <div className="relative group w-full h-[150px] tablet:h-[200px] laptop:h-[250px] desktop:h-[270px]">
-                            <img
-                                src={item.image}
-                                alt={item.title}
-                                className="w-full h-full object-cover rounded-t-xl"
-                            />
-                            <div className="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                                <h3 className="text-white text-2xl tablet:text-3xl laptop:text-4xl font-bold font-titillium text-center px-4">
-                                    {item.title}
-                                </h3>
+                        <a
+                            href={item.demo_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex-1"
+                        >
+                            <div className="relative group w-full h-[150px] tablet:h-[200px] laptop:h-[250px] desktop:h-[270px]">
+                                <img
+                                    src={item.image}
+                                    alt={item.title}
+                                    className="w-full h-full object-cover rounded-t-xl"
+                                />
+                                <div className="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                                    <h3 className="text-white text-2xl tablet:text-3xl laptop:text-4xl font-bold font-titillium text-center px-4">
+                                        {item.title}
+                                    </h3>
+                                </div>
                             </div>
-                        </div>
+                        </a>
 
                         <div className="flex w-full">
-                            <a
-                                href={item.demoUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex-1"
-                            >
-                                <button className="w-full text-custom-black hover:text-custom-pink font-montserrat font-semibold border-t-2 border-r-2 border-custom-black p-3 text-sm tablet:text-base">
-                                    View Demo
-                                </button>
-                            </a>
-                            <a
-                                href={item.codeUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex-1"
-                            >
-                                <button className="w-full text-custom-black hover:text-custom-pink font-montserrat font-semibold border-t-2 border-custom-black p-3 text-sm tablet:text-base">
-                                    Source Code
-                                </button>
-                            </a>
+                            <p className="w-full flex justify-center items-center text-custom-black hover:text-custom-pink font-montserrat font-semibold p-3 text-sm tablet:text-base laptop:text-xl">
+                                {item.title}
+                            </p>
                         </div>
                     </div>
                 ))}
