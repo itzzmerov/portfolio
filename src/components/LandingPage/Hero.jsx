@@ -3,18 +3,30 @@ import TriangleBlob from '../../assets/images/triangle-blob.png';
 import InvertedPyramidBlob from '../../assets/images/inverted-pyramid-blob.png';
 import TypingEffect from '../AnimatedComponents/TypingEffect';
 import axios from 'axios';
+import { useLoader } from '../../context/LoaderContext';
 
 const Hero = () => {
 
     const [heroData, setHeroData] = useState(null);
+    const { setLoading } = useLoader();
 
     useEffect(() => {
-        axios.get('https://rovidev.pythonanywhere.com/api/herosection/1/')
-            .then(res => setHeroData(res.data))
-            .catch(err => console.error(err));
-    }, []);
+        const fetchData = async () => {
+            try {
+                setLoading(true);
+                const res = await axios.get('https://rovidev.pythonanywhere.com/api/herosection/1/');
+                setHeroData(res.data);
+            } catch (err) {
+                console.error(err);
+            } finally {
+                setLoading(false);
+            }
+        };
 
-    if (!heroData) return <div>Loading...</div>;
+        fetchData();
+    }, [setLoading]);
+
+    if (!heroData) return null;
 
     return (
         <section id="home" className="relative overflow-hidden grid grid-cols-1 tablet:grid-cols-1 laptop:grid-cols-2 items-center justify-between pt-32 tablet:pt-44 pb-20 px-6 tablet:px-10 laptop:px-24 desktop:px-52 desktop-4k:px-80">
