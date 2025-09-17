@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLoader } from "../context/LoaderContext";
+import LogoImage from "../assets/images/logo.png"
 
 const GlobalLoader = () => {
     const text = "Loading...";
@@ -25,7 +26,8 @@ const GlobalLoader = () => {
 
     return (
         <div className="fixed top-0 z-[1000] w-full h-screen ">
-            <div className="flex justify-center items-center h-screen bg-gray-50/90">
+            <div className="flex flex-col justify-center items-center h-screen bg-gray-50/90">
+                <img src={LogoImage} alt="Logo" className="" />
                 <h1 className="text-4xl font-bold flex space-x-1">
                     {text.split("").map((letter, index) => (
                         <span
