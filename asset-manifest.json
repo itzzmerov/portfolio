@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.110ecd0f.css",
-    "main.js": "/portfolio/static/js/main.f3d28712.js",
+    "main.css": "/portfolio/static/css/main.4da255c6.css",
+    "main.js": "/portfolio/static/js/main.df650399.js",
     "static/media/inverted-pyramid-blob.png": "/portfolio/static/media/inverted-pyramid-blob.13c990d668ecf36adb69.png",
     "static/media/many-triangle-blob.png": "/portfolio/static/media/many-triangle-blob.a05609be56b191da8102.png",
     "static/media/three-triangle-blob.png": "/portfolio/static/media/three-triangle-blob.90c01e006253259ef9e4.png",
     "static/media/triangle-blob.png": "/portfolio/static/media/triangle-blob.d09ef43138fe6aeb4ddd.png",
     "static/media/logo.png": "/portfolio/static/media/logo.7f828842b353d2aa657e.png",
     "index.html": "/portfolio/index.html",
-    "main.110ecd0f.css.map": "/portfolio/static/css/main.110ecd0f.css.map",
-    "main.f3d28712.js.map": "/portfolio/static/js/main.f3d28712.js.map"
+    "main.4da255c6.css.map": "/portfolio/static/css/main.4da255c6.css.map",
+    "main.df650399.js.map": "/portfolio/static/js/main.df650399.js.map"
   },
   "entrypoints": [
-    "static/css/main.110ecd0f.css",
-    "static/js/main.f3d28712.js"
+    "static/css/main.4da255c6.css",
+    "static/js/main.df650399.js"
   ]
 }
