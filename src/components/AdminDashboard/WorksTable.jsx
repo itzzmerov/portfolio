@@ -55,7 +55,7 @@ const WorksTable = () => {
     if (!confirm.isConfirmed) return;
 
     try {
-      await axios.delete(`http://localhost:8000/api/projects/${id}/`, {
+      await axios.delete(`https://rovidev.pythonanywhere.com/api/projects/${id}/`, {
         headers: { Authorization: `Token ${token}` },
       });
       fetchProjects();
@@ -141,7 +141,7 @@ const WorksTable = () => {
     try {
       if (editingId) {
         await axios.patch(
-          `http://localhost:8000/api/projects/${editingId}/`,
+          `https://rovidev.pythonanywhere.com/api/projects/${editingId}/`,
           formData,
           {
             headers: {
@@ -158,7 +158,7 @@ const WorksTable = () => {
           showConfirmButton: false,
         });
       } else {
-        await axios.post(`http://localhost:8000/api/projects/`, formData, {
+        await axios.post(`https://rovidev.pythonanywhere.com/api/projects/`, formData, {
           headers: {
             Authorization: `Token ${token}`,
             "Content-Type": "multipart/form-data",

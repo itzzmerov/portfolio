@@ -71,12 +71,12 @@ const HeroForm = () => {
     if (form.image) formData.append("image", form.image);
 
     try {
-      const res = await axios.get("http://localhost:8000/api/herosection/");
+      const res = await axios.get("https://rovidev.pythonanywhere.com/api/herosection/");
       const heroId = res.data[0]?.id;
 
       if (heroId) {
         await axios.patch(
-          `http://localhost:8000/api/herosection/${heroId}/`,
+          `https://rovidev.pythonanywhere.com/api/herosection/${heroId}/`,
           formData,
           {
             headers: {
@@ -94,7 +94,7 @@ const HeroForm = () => {
         });
       } else {
         await axios.post(
-          "http://localhost:8000/api/herosection/",
+          "https://rovidev.pythonanywhere.com/api/herosection/",
           formData,
           {
             headers: {
@@ -201,8 +201,8 @@ const HeroForm = () => {
         type="submit"
         disabled={loading || !isChanged}
         className={`px-7 py-2 rounded border-2 ${loading || !isChanged
-            ? "bg-gray-400 text-white border-gray-400 cursor-not-allowed"
-            : "bg-custom-darkish-blue text-white border-custom-darkish-blue hover:bg-transparent hover:text-custom-darkish-blue hover:font-bold"
+          ? "bg-gray-400 text-white border-gray-400 cursor-not-allowed"
+          : "bg-custom-darkish-blue text-white border-custom-darkish-blue hover:bg-transparent hover:text-custom-darkish-blue hover:font-bold"
           }`}
       >
         {loading ? "Saving..." : "Save"}

@@ -52,7 +52,7 @@ const ServicesForm = () => {
         try {
             if (editingId) {
                 await axios.patch(
-                    `http://localhost:8000/api/services/${editingId}/`,
+                    `https://rovidev.pythonanywhere.com/api/services/${editingId}/`,
                     form,
                     { headers: { Authorization: `Token ${token}` } }
                 );
@@ -64,7 +64,7 @@ const ServicesForm = () => {
                     showConfirmButton: false,
                 });
             } else {
-                await axios.post(`http://localhost:8000/api/services/`, form, {
+                await axios.post(`https://rovidev.pythonanywhere.com/api/services/`, form, {
                     headers: { Authorization: `Token ${token}` },
                 });
                 Swal.fire({
@@ -121,7 +121,7 @@ const ServicesForm = () => {
         if (!confirm.isConfirmed) return;
 
         try {
-            await axios.delete(`http://localhost:8000/api/services/${id}/`, {
+            await axios.delete(`https://rovidev.pythonanywhere.com/api/services/${id}/`, {
                 headers: { Authorization: `Token ${token}` },
             });
             fetchServices();

@@ -82,11 +82,11 @@ const AboutForm = () => {
     });
 
     try {
-      const res = await axios.get("http://localhost:8000/api/aboutme/");
+      const res = await axios.get("https://rovidev.pythonanywhere.com/api/aboutme/");
       const aboutId = res.data[0]?.id;
 
       if (aboutId) {
-        await axios.patch(`http://localhost:8000/api/aboutme/${aboutId}/`, formData, {
+        await axios.patch(`https://rovidev.pythonanywhere.com/api/aboutme/${aboutId}/`, formData, {
           headers: {
             Authorization: `Token ${token}`,
             "Content-Type": "multipart/form-data",
@@ -100,7 +100,7 @@ const AboutForm = () => {
           window.location.reload();
         });
       } else {
-        await axios.post(`http://localhost:8000/api/aboutme/`, formData, {
+        await axios.post(`https://rovidev.pythonanywhere.com/api/aboutme/`, formData, {
           headers: {
             Authorization: `Token ${token}`,
             "Content-Type": "multipart/form-data",
@@ -225,8 +225,8 @@ const AboutForm = () => {
         type="submit"
         disabled={loading || !isChanged}
         className={`px-7 py-2 rounded border-2 ${loading || !isChanged
-            ? "bg-gray-400 text-white border-gray-400 cursor-not-allowed"
-            : "bg-custom-darkish-blue text-white border-custom-darkish-blue hover:bg-transparent hover:text-custom-darkish-blue hover:font-bold"
+          ? "bg-gray-400 text-white border-gray-400 cursor-not-allowed"
+          : "bg-custom-darkish-blue text-white border-custom-darkish-blue hover:bg-transparent hover:text-custom-darkish-blue hover:font-bold"
           }`}
       >
         {loading ? "Saving..." : "Save"}
