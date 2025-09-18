@@ -51,18 +51,61 @@ const About = () => {
                 </p>
 
                 <div className="flex flex-wrap gap-2 tablet:gap-4 justify-center tablet:justify-center laptop-large:justify-start">
-                    <a href={aboutData.facebook} target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaFacebook size={'35px'} /></a>
-                    <a href={aboutData.instagram} target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaInstagram size={'35px'} /></a>
-                    <a href={aboutData.twitter} target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaTwitter size={'35px'} /></a>
-                    <a href={aboutData.linkedin} target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaLinkedin size={'35px'} /></a>
-                    <a href={aboutData.messenger} target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaFacebookMessenger size={'35px'} /></a>
-                    <a href={aboutData.youtube} target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaYoutube size={'35px'} /></a>
-                    <a href={aboutData.github} target='_blank' rel='noreferrer' className="text-custom-darkish-blue hover:text-custom-dark-pink"><FaGithub size={'35px'} /></a>
+
+                    <a href={aboutData.facebook} target="_blank" rel="noreferrer" className="relative group text-custom-darkish-blue hover:text-custom-dark-pink">
+                        <FaFacebook size={'35px'} />
+                        <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm rounded bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                            Facebook Profile
+                        </span>
+                    </a>
+
+                    <a href={aboutData.messenger} target="_blank" rel="noreferrer" className="relative group text-custom-darkish-blue hover:text-custom-dark-pink">
+                        <FaFacebookMessenger size={'35px'} />
+                        <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm rounded bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                            Messenger
+                        </span>
+                    </a>
+
+                    <a href={aboutData.linkedin} target="_blank" rel="noreferrer" className="relative group text-custom-darkish-blue hover:text-custom-dark-pink">
+                        <FaLinkedin size={'35px'} />
+                        <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm rounded bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                            LinkedIn Profile
+                        </span>
+                    </a>
+
+                    <a href={aboutData.github} target="_blank" rel="noreferrer" className="relative group text-custom-darkish-blue hover:text-custom-dark-pink">
+                        <FaGithub size={'35px'} />
+                        <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm rounded bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                            GitHub Profile
+                        </span>
+                    </a>
+
+                    <a href={aboutData.instagram} target="_blank" rel="noreferrer" className="relative group text-custom-darkish-blue hover:text-custom-dark-pink">
+                        <FaInstagram size={'35px'} />
+                        <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm rounded bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                            Instagram Profile
+                        </span>
+                    </a>
+
+                    <a href={aboutData.twitter} target="_blank" rel="noreferrer" className="relative group text-custom-darkish-blue hover:text-custom-dark-pink">
+                        <FaTwitter size={'35px'} />
+                        <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm rounded bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                            Twitter Profile
+                        </span>
+                    </a>
+
+                    <a href={aboutData.youtube} target="_blank" rel="noreferrer" className="relative group text-custom-darkish-blue hover:text-custom-dark-pink">
+                        <FaYoutube size={'35px'} />
+                        <span className="absolute -top-8 left-1/2 -translate-x-1/2 px-2 py-1 text-sm rounded bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                            YouTube Channel
+                        </span>
+                    </a>
+
                 </div>
 
                 <div className="flex flex-col tablet:flex-row gap-2 tablet:gap-4 justify-center laptop:justify-start">
                     <a
-                        href="https://drive.google.com/file/d/1XUWByb6SXQAxwSbnOT3bK_twC-VEq4Xn/view?usp=sharing"
+                        href="https://drive.google.com/file/d/1KNDwG7BjZBXkk6Yi33EcqNzhPsBZUSnJ/view?usp=sharing"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

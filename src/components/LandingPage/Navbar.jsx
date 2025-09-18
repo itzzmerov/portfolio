@@ -18,8 +18,16 @@ const Navbar = () => {
                     <a href="#about" className="hover:text-custom-pink">About</a>
                     <a href="#portfolio" className="hover:text-custom-pink">Portfolio</a>
                     <a href="#contact" className="hover:text-custom-pink">Contact</a>
-                    <a href='https://www.github.com/itzzmerov' target='_blank' rel='noreferrer'>
-                        <FaGithub className="hover:text-custom-pink cursor-pointer" size={24} />
+                    <a
+                        href="https://www.github.com/itzzmerov"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="relative group"
+                    >
+                        <FaGithub className="hover:text-custom-pink cursor-pointer" size={28} />
+                        <span className="absolute -bottom-9 left-1/2 -translate-x-1/2 px-2 py-1 text-sm rounded bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                            GitHub profile
+                        </span>
                     </a>
 
                 </nav>

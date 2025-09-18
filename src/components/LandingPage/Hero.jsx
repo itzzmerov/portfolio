@@ -42,7 +42,7 @@ const Hero = () => {
                     </p>
                     <div className="mt-6 tablet:mt-3 flex flex-col tablet:flex-row gap-2 tablet:gap-4 justify-center laptop-large:justify-start">
                         <a
-                            href="https://drive.google.com/file/d/1XUWByb6SXQAxwSbnOT3bK_twC-VEq4Xn/view?usp=sharing"
+                            href="https://drive.google.com/file/d/1KNDwG7BjZBXkk6Yi33EcqNzhPsBZUSnJ/view?usp=sharing"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
