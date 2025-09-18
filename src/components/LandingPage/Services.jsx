@@ -31,7 +31,7 @@ const Services = () => {
     return (
         <section className="py-12 bg-custom-white relative overflow-hidden pt-24 laptop-large:pt-28 desktop:pt-44 pb-20 px-6 tablet:px-10 laptop-large:px-24 desktop:px-52 desktop-4k:px-80">
             <div className="container mx-auto px-4">
-                <h2 className="relative z-20 text-center text-custom-darkish-blue text-4xl tablet:text-4xl laptop:text-7xl font-titillium font-black mb-16">
+                <h2 className="relative z-20 text-center text-custom-darkish-blue text-4xl tablet:text-4xl laptop:text-7xl font-titillium font-black mb-16" data-aos="fade-up">
                     Services
                 </h2>
                 <div className="grid gap-6 grid-cols-1 laptop:grid-cols-3">
@@ -39,6 +39,8 @@ const Services = () => {
                         <div
                             key={index}
                             className="flex flex-col justify-center items-center bg-transparent rounded-lg shadow p-8 laptop:p-10 hover:shadow-lg transition-shadow duration-300 border-2 border-custom-darkish-blue gap-2 text-custom-darkish-blue hover:text-custom-dark-pink"
+                            data-aos="fade-up"
+                            data-aos-delay={`${index * 100}`}
                         >
                             <p className="text-6xl laptop:text-7xl">
                                 {iconMap[service.icon] || <CgWebsite />} {/* Fallback icon */}

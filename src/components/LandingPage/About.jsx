@@ -24,11 +24,11 @@ const About = () => {
     return (
         <section id="about" className="relative overflow-hidden grid grid-cols-1 tablet:grid-cols-1 laptop:grid-cols-2 items-center justify-between pt-24 laptop-large:pt-28 desktop:pt-44 pb-20 px-6 tablet:px-10 laptop-large:px-24 desktop:px-52 desktop-4k:px-80">
 
-            <div className="order-1 laptop:order-1 flex justify-center mb-8 laptop:mb-0 relative z-20">
+            <div className="order-1 laptop:order-1 flex justify-center mb-8 laptop:mb-0 relative z-20" data-aos="fade-right">
                 <img src={aboutData.image} alt="Profile" className="h-[300px] tablet:h-[500px] laptop-large:h-[650px]" />
             </div>
 
-            <div className="order-2 laptop:order-1 flex flex-col gap-3 tablet:gap-5 items-center tablet:items-center laptop:items-start text-center tablet:text-center laptop:text-left px-2 tablet:px-10 relative z-20">
+            <div className="order-2 laptop:order-1 flex flex-col gap-3 tablet:gap-5 items-center tablet:items-center laptop:items-start text-center tablet:text-center laptop:text-left px-2 tablet:px-10 relative z-20" data-aos="fade-up">
                 <h1 className="font-titillium font-black text-custom-darkish-blue text-5xl tablet:text-7xl laptop-large:text-8xl">{aboutData.title}</h1>
 
                 <div className="grid grid-cols-1 tablet:grid-cols-1 laptop:grid-cols-2 gap-4 py-2 w-full">
@@ -46,7 +46,7 @@ const About = () => {
                     </div>
                 </div>
 
-                <p className="font-montserrat text-custom-black text-sm tablet:text-lg laptop:text-base laptop-large:text-xl max-w-3xl leading-7 tablet:leading-8">
+                <p className="font-montserrat text-custom-black text-sm tablet:text-lg laptop:text-base laptop-large:text-lg max-w-3xl leading-7 tablet:leading-8">
                     {aboutData.description}
                 </p>
 

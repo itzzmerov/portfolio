@@ -47,11 +47,11 @@ const Contact = () => {
             id="contact"
             className="relative overflow-hidden px-6 tablet:px-10 laptop:px-24 desktop:px-52 desktop-4k:px-80 pt-28 pb-10"
         >
-            <h2 className="relative z-20 text-center text-custom-darkish-blue text-5xl tablet:text-6xl laptop:text-7xl font-titillium font-black underline mb-3 laptop:mb-8">
+            <h2 className="relative z-20 text-center text-custom-darkish-blue text-5xl tablet:text-6xl laptop:text-7xl font-titillium font-black underline mb-3 laptop:mb-8" data-aos="fade-up">
                 Contact Me
             </h2>
 
-            <div className="flex flex-wrap gap-6 justify-center mb-16">
+            <div className="flex flex-wrap gap-6 justify-center mb-16" data-aos="fade-up">
                 <a href="mailto:balingbing.johnrovie20@gmail.com" className="text-custom-darkish-blue hover:text-custom-dark-pink">
                     <MdEmail fontSize={'40px'} />
                 </a>
@@ -68,6 +68,7 @@ const Contact = () => {
 
             <form
                 onSubmit={handleSubmit}
+                data-aos="fade-up"
                 className="w-full max-w-xl mx-auto flex flex-col gap-6 justify-center items-center px-2 tablet:px-0"
             >
                 <div className="relative w-full">
