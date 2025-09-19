@@ -47,7 +47,7 @@ const Contact = () => {
             id="contact"
             className="relative overflow-hidden px-6 tablet:px-10 laptop:px-24 desktop:px-52 desktop-4k:px-80 pt-28 pb-10"
         >
-            <h2 className="relative z-20 text-center text-custom-darkish-blue text-5xl tablet:text-6xl laptop:text-7xl font-titillium font-black underline mb-3 laptop:mb-8" data-aos="fade-up">
+            <h2 className="relative z-20 text-center text-custom-darkish-blue text-5xl tablet:text-6xl laptop:text-7xl font-titillium font-black underline mb-3 laptop:mb-8">
                 Contact Me
             </h2>
 

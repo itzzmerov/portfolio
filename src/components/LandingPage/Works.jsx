@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import AOS from "aos";
 // BLOBS
 import TriangleBlob from '../../assets/images/triangle-blob.png';
 import ThreeTriangle from '../../assets/images/three-triangle-blob.png';
@@ -13,6 +14,7 @@ const Works = () => {
             .get('https://rovidev.pythonanywhere.com/api/projects/')
             .then((res) => {
                 setProjects(res.data);
+                setTimeout(() => AOS.refresh(), 50);
             })
             .catch((err) => console.error("Error fetching projects:", err));
     }, []);

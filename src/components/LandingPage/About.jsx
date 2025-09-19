@@ -8,15 +8,23 @@ import {
     FaGithub
 } from "react-icons/fa";
 import axios from 'axios';
+import AOS from "aos";
 
 const About = () => {
 
     const [aboutData, setAboutData] = useState(null);
 
     useEffect(() => {
-        axios.get('https://rovidev.pythonanywhere.com/api/aboutme/1/')
-            .then(res => setAboutData(res.data))
-            .catch(err => console.error(err));
+        axios
+            .get("https://rovidev.pythonanywhere.com/api/aboutme/1/")
+            .then((res) => {
+                setAboutData(res.data);
+
+                setTimeout(() => {
+                    AOS.refresh();
+                }, 100);
+            })
+            .catch((err) => console.error(err));
     }, []);
 
     if (!aboutData) return <div>Loading...</div>;

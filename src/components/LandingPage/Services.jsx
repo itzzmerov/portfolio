@@ -4,6 +4,7 @@ import { CgWebsite } from "react-icons/cg";
 import { FaLaptopCode } from "react-icons/fa";
 import { MdDesignServices } from "react-icons/md";
 import ManyTriangleBlob from '../../assets/images/many-triangle-blob.png';
+import AOS from "aos";
 
 // Map icon keywords to actual components
 const iconMap = {
@@ -20,6 +21,7 @@ const Services = () => {
             try {
                 const res = await axios.get("https://rovidev.pythonanywhere.com/api/services/");
                 setServices(res.data);
+                setTimeout(() => AOS.refresh(), 50);
             } catch (error) {
                 console.error("Failed to fetch services", error);
             }
