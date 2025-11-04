@@ -23,6 +23,10 @@ const Works = () => {
     setVisibleCount(projects.length);
   };
 
+  // Determine how many projects are visible
+  const visibleProjects = projects.slice(0, visibleCount);
+  const projectCount = visibleProjects.length;
+
   return (
     <section
       id="portfolio"
@@ -35,13 +39,22 @@ const Works = () => {
         Portfolio
       </h2>
 
-      <div className="relative z-20 grid grid-cols-1 tablet:grid-cols-2 laptop-large:grid-cols-3 gap-6 ">
-        {projects.slice(0, visibleCount).map((item, index) => (
+      {/* 🔧 Dynamic Layout for Centering Cards */}
+      <div
+        className={`relative z-20 flex flex-wrap gap-6 ${
+          projectCount === 1
+            ? "justify-center"
+            : projectCount === 2
+            ? "justify-center tablet:justify-center laptop:justify-center"
+            : "justify-start tablet:justify-between laptop:justify-between"
+        }`}
+      >
+        {visibleProjects.map((item, index) => (
           <div
             key={index}
             data-aos="fade-up"
             data-aos-delay={`${index * 100}`}
-            className="border-2 border-custom-black rounded-xl shadow-md hover:text-custom-pink"
+            className="w-full tablet:w-[45%] laptop-large:w-[30%] border-2 border-custom-black rounded-xl shadow-md hover:text-custom-pink transition"
           >
             <a
               href={item.demo_url}
