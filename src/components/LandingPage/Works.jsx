@@ -35,13 +35,13 @@ const Works = () => {
         Portfolio
       </h2>
 
-      <div className="relative z-20 grid grid-cols-1 tablet:grid-cols-2 laptop-large:grid-cols-3 gap-6">
+      <div className="relative z-20 grid grid-cols-1 tablet:grid-cols-2 laptop-large:grid-cols-3 gap-6 ">
         {projects.slice(0, visibleCount).map((item, index) => (
           <div
             key={index}
             data-aos="fade-up"
             data-aos-delay={`${index * 100}`}
-            className="border-2 border-custom-black rounded-xl shadow-md"
+            className="border-2 border-custom-black rounded-xl shadow-md hover:text-custom-pink"
           >
             <a
               href={item.demo_url}
@@ -57,17 +57,17 @@ const Works = () => {
                 />
                 <div className="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
                   <h3 className="text-white text-2xl tablet:text-3xl laptop:text-4xl font-bold font-titillium text-center px-4">
-                    Go to Site
+                    Click to Visit
                   </h3>
                 </div>
               </div>
             </a>
 
             <div className="flex w-full flex-col">
-              <p className="w-full flex justify-center items-center text-custom-black hover:text-custom-pink font-montserrat font-semibold p-3 text-sm tablet:text-base laptop:text-xl">
+              <p className="w-full flex justify-center items-center font-montserrat font-semibold p-3 text-sm tablet:text-base laptop:text-xl">
                 {item.title}
               </p>
-              <p className="w-full flex justify-center items-center text-center px-3 pb-3 text-sm tablet:text-base laptop:text-lg">
+              <p className="w-full flex justify-center items-center text-center text-custom-black px-3 pb-3 text-sm tablet:text-base laptop:text-lg">
                 {item.description}
               </p>
             </div>
