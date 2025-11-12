@@ -41,13 +41,12 @@ const Works = () => {
 
       {/* 🔧 Dynamic Layout for Centering Cards */}
       <div
-        className={`relative z-20 flex flex-wrap gap-6 ${
-          projectCount === 1
-            ? "justify-center"
-            : projectCount === 2
+        className={`relative z-20 flex flex-wrap gap-6 ${projectCount === 1
+          ? "justify-center"
+          : projectCount === 2
             ? "justify-center tablet:justify-center laptop:justify-center"
             : "justify-start tablet:justify-between laptop:justify-between"
-        }`}
+          }`}
       >
         {visibleProjects.map((item, index) => (
           <div
@@ -80,7 +79,7 @@ const Works = () => {
               <p className="w-full flex justify-center items-center font-montserrat font-semibold p-3 text-sm tablet:text-base laptop:text-xl">
                 {item.title}
               </p>
-              <p className="w-full flex justify-center items-center text-center text-custom-black px-3 pb-3 text-sm tablet:text-base laptop:text-lg">
+              <p className="w-full flex justify-center items-center text-center text-custom-black px-3 pb-3 text-sm tablet:text-base laptop:text-lg line-clamp-3">
                 {item.description}
               </p>
             </div>
