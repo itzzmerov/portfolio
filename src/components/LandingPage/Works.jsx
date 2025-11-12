@@ -8,6 +8,7 @@ import ThreeTriangle from "../../assets/images/three-triangle-blob.png";
 const Works = () => {
   const [projects, setProjects] = useState([]);
   const [visibleCount, setVisibleCount] = useState(6);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   useEffect(() => {
     axios
@@ -23,7 +24,6 @@ const Works = () => {
     setVisibleCount(projects.length);
   };
 
-  // Determine how many projects are visible
   const visibleProjects = projects.slice(0, visibleCount);
   const projectCount = visibleProjects.length;
 
@@ -39,7 +39,6 @@ const Works = () => {
         Portfolio
       </h2>
 
-      {/* 🔧 Dynamic Layout for Centering Cards */}
       <div
         className={`relative z-20 flex flex-wrap gap-6 ${projectCount === 1
           ? "justify-center"
@@ -84,6 +83,12 @@ const Works = () => {
               >
                 {item.description}
               </p>
+              <button
+                onClick={() => setSelectedProject(item)}
+                className="text-custom-darkish-blue font-semibold mb-4 hover:underline"
+              >
+                Read More
+              </button>
             </div>
           </div>
         ))}
@@ -112,6 +117,41 @@ const Works = () => {
         alt="Triangle Blob"
         className="absolute top-20 tablet:top-14 laptop:top-36 right-[-150px] tablet:right-[-200px] laptop:right-[-250px] w-[300px] tablet:w-[400px] laptop:w-[500px] opacity-50 rotate-180 z-10"
       />
+
+      {/* Modal */}
+      {selectedProject && (
+        <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
+          <div className="bg-white rounded-2xl shadow-xl max-w-lg w-[90%] p-6 relative">
+            <button
+              onClick={() => setSelectedProject(null)}
+              className="absolute top-2 right-4 text-2xl font-bold text-gray-500 hover:text-red-600"
+            >
+              &times;
+            </button>
+            <h3 className="text-2xl font-bold mb-4 text-custom-darkish-blue text-center">
+              {selectedProject.title}
+            </h3>
+            <img
+              src={selectedProject.image}
+              alt={selectedProject.title}
+              className="w-full h-56 object-cover rounded-md mb-4"
+            />
+            <p className="text-gray-700 text-justify mb-4">
+              {selectedProject.description}
+            </p>
+            <div className="flex justify-center">
+              <a
+                href={selectedProject.demo_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-custom-darkish-blue text-white px-6 py-2 rounded-xl font-semibold hover:bg-transparent hover:text-custom-darkish-blue border-2 border-custom-darkish-blue transition"
+              >
+                Visit Project
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
