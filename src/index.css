@@ -37,3 +37,12 @@ html {
   display: inline-block;
   animation: wave 1.5s ease-in-out infinite;
 }
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.4em;
+  max-height: calc(1.6em * 3);
+}

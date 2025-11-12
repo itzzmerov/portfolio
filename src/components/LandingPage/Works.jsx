@@ -79,7 +79,9 @@ const Works = () => {
               <p className="w-full flex justify-center items-center font-montserrat font-semibold p-3 text-sm tablet:text-base laptop:text-xl">
                 {item.title}
               </p>
-              <p className="w-full flex justify-center items-center text-center text-custom-black px-3 pb-3 text-sm tablet:text-base laptop:text-lg line-clamp-3">
+              <p
+                className="w-full text-center text-custom-black px-3 pb-3 text-sm tablet:text-base laptop:text-lg line-clamp-3"
+              >
                 {item.description}
               </p>
             </div>
