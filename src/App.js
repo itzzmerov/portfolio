@@ -11,14 +11,14 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-function ScrollAOSRefresher() {
-  // call AOS.refresh() when route changes (optional)
-  const location = useLocation();
-  useEffect(() => {
-    AOS.refresh();
-  }, [location]);
-  return null;
-}
+// function ScrollAOSRefresher() {
+//   // call AOS.refresh() when route changes (optional)
+//   const location = useLocation();
+//   useEffect(() => {
+//     AOS.refresh();
+//   }, [location]);
+//   return null;
+// }
 
 function App() {
   useEffect(() => {
