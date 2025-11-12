@@ -52,7 +52,7 @@ const Works = () => {
             key={index}
             data-aos="fade-up"
             data-aos-delay={`${index * 100}`}
-            className="w-full tablet:w-[45%] laptop-large:w-[30%] border-2 border-custom-black rounded-xl shadow-md hover:text-custom-pink transition"
+            className="w-full tablet:w-[45%] laptop-large:w-[30%] border-2 border-custom-black rounded-xl shadow-md transition"
           >
             <a
               href={item.demo_url}
@@ -85,7 +85,7 @@ const Works = () => {
               </p>
               <button
                 onClick={() => setSelectedProject(item)}
-                className="text-custom-darkish-blue font-semibold mb-4 hover:underline"
+                className="text-custom-darkish-blue font-semibold mb-4 hover:underline hover:text-custom-pink"
               >
                 Read More
               </button>
