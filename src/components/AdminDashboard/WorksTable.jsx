@@ -268,6 +268,7 @@ const WorksTable = () => {
                   name="description"
                   value={form.description}
                   onChange={handleChange}
+                  rows="6"
                   className="w-full border p-2 rounded"
                 />
               </div>
@@ -283,7 +284,7 @@ const WorksTable = () => {
                 />
               </div>
 
-              <div>
+              {/* <div>
                 <label>Code URL:</label>
                 <input
                   type="text"
@@ -292,7 +293,7 @@ const WorksTable = () => {
                   onChange={handleChange}
                   className="w-full border p-2 rounded"
                 />
-              </div>
+              </div> */}
 
               <div>
                 <label>Image:</label>
