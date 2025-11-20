@@ -37,7 +37,7 @@ const About = () => {
             </div>
 
             <div className="order-2 laptop:order-1 flex flex-col gap-3 tablet:gap-5 items-center tablet:items-center laptop:items-start text-center tablet:text-center laptop:text-left px-2 tablet:px-10 relative z-20" data-aos="fade-up">
-                <h1 className="font-titillium font-black text-custom-darkish-blue text-5xl tablet:text-7xl laptop-large:text-8xl">{aboutData.title}</h1>
+                <h1 className="font-titillium font-black underline text-custom-darkish-blue text-5xl tablet:text-7xl laptop-large:text-8xl">{aboutData.title}</h1>
 
                 <div className="grid grid-cols-1 tablet:grid-cols-1 laptop:grid-cols-2 gap-4 py-2 w-full">
                     <div className="flex flex-col justify-center items-center text-center px-6 laptop:px-2 py-4 laptop-large:py-6 border-2 border-custom-darkish-blue rounded-xl transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
