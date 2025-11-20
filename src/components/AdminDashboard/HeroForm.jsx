@@ -37,7 +37,7 @@ const HeroForm = () => {
       }
     };
     fetchHero();
-  }, []);
+  }, [apiKey]);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;

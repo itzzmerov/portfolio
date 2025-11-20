@@ -40,7 +40,7 @@ const WorksTable = () => {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [apiKey]);
 
   const handleDelete = async (id) => {
     const confirm = await Swal.fire({

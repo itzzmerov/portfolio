@@ -25,7 +25,7 @@ const Hero = () => {
         };
 
         fetchData();
-    }, [setLoading]);
+    }, [setLoading, apiKey]);
 
     if (!heroData) return null;
 

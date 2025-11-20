@@ -20,7 +20,7 @@ const Works = () => {
         setTimeout(() => AOS.refresh(), 50);
       })
       .catch((err) => console.error("Error fetching projects:", err));
-  }, []);
+  }, [apiKey]);
 
   const handleSeeMore = () => {
     setVisibleCount(projects.length);

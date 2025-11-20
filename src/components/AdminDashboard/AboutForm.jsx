@@ -49,7 +49,7 @@ const AboutForm = () => {
       }
     };
     fetchAbout();
-  }, []);
+  }, [apiKey]);
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;

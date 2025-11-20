@@ -31,7 +31,7 @@ const Services = () => {
     };
 
     fetchServices();
-  }, []);
+  }, [apiKey]);
 
   return (
     <section className="py-5 bg-custom-white relative overflow-hidden pt-10 laptop-large:pt-16 desktop:pt-28 pb-20 px-6 tablet:px-10 laptop-large:px-24 desktop:px-52 desktop-4k:px-80">

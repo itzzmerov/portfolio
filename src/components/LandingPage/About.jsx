@@ -26,7 +26,7 @@ const About = () => {
                 }, 100);
             })
             .catch((err) => console.error(err));
-    }, []);
+    }, [apiKey]);
 
     if (!aboutData) return <div>Loading...</div>;
 

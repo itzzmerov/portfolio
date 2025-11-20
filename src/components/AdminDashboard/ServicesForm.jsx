@@ -36,7 +36,7 @@ const ServicesForm = () => {
         };
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
-    }, []);
+    }, [apiKey]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
