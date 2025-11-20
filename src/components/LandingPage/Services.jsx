@@ -36,7 +36,7 @@ const Services = () => {
     <section className="py-5 bg-custom-white relative overflow-hidden pt-10 laptop-large:pt-16 desktop:pt-28 pb-20 px-6 tablet:px-10 laptop-large:px-24 desktop:px-52 desktop-4k:px-80">
       <div className="container mx-auto px-4">
         <h2
-          className="relative z-20 text-center text-custom-darkish-blue text-4xl tablet:text-4xl laptop:text-7xl font-titillium font-black mb-16"
+          className="relative z-20 text-center text-custom-darkish-blue text-4xl tablet:text-4xl laptop:text-7xl font-titillium font-black underline mb-16"
           data-aos="fade-up"
         >
           Services
