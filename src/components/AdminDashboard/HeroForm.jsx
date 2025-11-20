@@ -14,11 +14,12 @@ const HeroForm = () => {
   const [loading, setLoading] = useState(false);
 
   const token = localStorage.getItem("authToken");
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     const fetchHero = async () => {
       try {
-        const res = await axios.get("https://rovidev.pythonanywhere.com/api/herosection/");
+        const res = await axios.get(`${apiKey}/herosection/`);
         const hero = res.data[0];
         if (hero) {
           const initial = {
@@ -71,12 +72,12 @@ const HeroForm = () => {
     if (form.image) formData.append("image", form.image);
 
     try {
-      const res = await axios.get("https://rovidev.pythonanywhere.com/api/herosection/");
+      const res = await axios.get(`${apiKey}/herosection/`);
       const heroId = res.data[0]?.id;
 
       if (heroId) {
         await axios.patch(
-          `https://rovidev.pythonanywhere.com/api/herosection/${heroId}/`,
+          `${apiKey}/herosection/${heroId}/`,
           formData,
           {
             headers: {
@@ -94,7 +95,7 @@ const HeroForm = () => {
         });
       } else {
         await axios.post(
-          "https://rovidev.pythonanywhere.com/api/herosection/",
+          `${apiKey}/herosection/`,
           formData,
           {
             headers: {

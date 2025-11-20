@@ -14,10 +14,11 @@ const ServicesForm = () => {
     const [loading, setLoading] = useState(false);
 
     const token = localStorage.getItem("authToken");
+    const apiKey = process.env.REACT_APP_API_KEY;
 
     const fetchServices = async () => {
         try {
-            const res = await axios.get("https://rovidev.pythonanywhere.com/api/services/");
+            const res = await axios.get(`${apiKey}//services/`);
             setServices(res.data);
         } catch (err) {
             console.error(err);
@@ -52,7 +53,7 @@ const ServicesForm = () => {
         try {
             if (editingId) {
                 await axios.patch(
-                    `https://rovidev.pythonanywhere.com/api/services/${editingId}/`,
+                    `${apiKey}//services/${editingId}/`,
                     form,
                     { headers: { Authorization: `Token ${token}` } }
                 );
@@ -64,7 +65,7 @@ const ServicesForm = () => {
                     showConfirmButton: false,
                 });
             } else {
-                await axios.post(`https://rovidev.pythonanywhere.com/api/services/`, form, {
+                await axios.post(`${apiKey}//services/`, form, {
                     headers: { Authorization: `Token ${token}` },
                 });
                 Swal.fire({
@@ -121,7 +122,7 @@ const ServicesForm = () => {
         if (!confirm.isConfirmed) return;
 
         try {
-            await axios.delete(`https://rovidev.pythonanywhere.com/api/services/${id}/`, {
+            await axios.delete(`${apiKey}//services/${id}/`, {
                 headers: { Authorization: `Token ${token}` },
             });
             fetchServices();

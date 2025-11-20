@@ -17,10 +17,11 @@ const WorksTable = () => {
   const [imagePreviewUrl, setImagePreviewUrl] = useState("");
 
   const token = localStorage.getItem("authToken");
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   const fetchProjects = async () => {
     try {
-      const res = await axios.get("https://rovidev.pythonanywhere.com/api/projects/");
+      const res = await axios.get(`${apiKey}/projects/`);
       setProjects(res.data);
     } catch (err) {
       console.error(err);
@@ -55,7 +56,7 @@ const WorksTable = () => {
     if (!confirm.isConfirmed) return;
 
     try {
-      await axios.delete(`https://rovidev.pythonanywhere.com/api/projects/${id}/`, {
+      await axios.delete(`${apiKey}/projects/${id}/`, {
         headers: { Authorization: `Token ${token}` },
       });
       fetchProjects();
@@ -141,7 +142,7 @@ const WorksTable = () => {
     try {
       if (editingId) {
         await axios.patch(
-          `https://rovidev.pythonanywhere.com/api/projects/${editingId}/`,
+          `${apiKey}/projects/${editingId}/`,
           formData,
           {
             headers: {
@@ -158,7 +159,7 @@ const WorksTable = () => {
           showConfirmButton: false,
         });
       } else {
-        await axios.post(`https://rovidev.pythonanywhere.com/api/projects/`, formData, {
+        await axios.post(`${apiKey}/projects/`, formData, {
           headers: {
             Authorization: `Token ${token}`,
             "Content-Type": "multipart/form-data",

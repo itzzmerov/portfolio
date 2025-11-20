@@ -20,11 +20,12 @@ const AboutForm = () => {
   const [loading, setLoading] = useState(false);
 
   const token = localStorage.getItem("authToken");
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     const fetchAbout = async () => {
       try {
-        const res = await axios.get("https://rovidev.pythonanywhere.com/api/aboutme/");
+        const res = await axios.get(`${apiKey}/aboutme/`);
         const about = res.data[0];
         if (about) {
           const initial = {
@@ -82,11 +83,11 @@ const AboutForm = () => {
     });
 
     try {
-      const res = await axios.get("https://rovidev.pythonanywhere.com/api/aboutme/");
+      const res = await axios.get(`${apiKey}/aboutme/`);
       const aboutId = res.data[0]?.id;
 
       if (aboutId) {
-        await axios.patch(`https://rovidev.pythonanywhere.com/api/aboutme/${aboutId}/`, formData, {
+        await axios.patch(`${apiKey}/aboutme/${aboutId}/`, formData, {
           headers: {
             Authorization: `Token ${token}`,
             "Content-Type": "multipart/form-data",
@@ -100,7 +101,7 @@ const AboutForm = () => {
           window.location.reload();
         });
       } else {
-        await axios.post(`https://rovidev.pythonanywhere.com/api/aboutme/`, formData, {
+        await axios.post(`${apiKey}/aboutme/`, formData, {
           headers: {
             Authorization: `Token ${token}`,
             "Content-Type": "multipart/form-data",

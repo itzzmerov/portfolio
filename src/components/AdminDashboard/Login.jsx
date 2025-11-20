@@ -8,13 +8,14 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
     try {
-      const response = await axios.post("https://rovidev.pythonanywhere.com/api/login/", {
+      const response = await axios.post(`${apiKey}/login/`, {
         username,
         password,
       });
