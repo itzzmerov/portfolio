@@ -13,10 +13,11 @@ import AOS from "aos";
 const About = () => {
 
     const [aboutData, setAboutData] = useState(null);
+    const apiKey = process.env.REACT_APP_API_KEY;
 
     useEffect(() => {
         axios
-            .get("https://rovidev.pythonanywhere.com/api/aboutme/1/")
+            .get(`${apiKey}/aboutme/1/`)
             .then((res) => {
                 setAboutData(res.data);
 

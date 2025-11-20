@@ -15,12 +15,13 @@ const iconMap = {
 
 const Services = () => {
   const [services, setServices] = useState([]);
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     const fetchServices = async () => {
       try {
         const res = await axios.get(
-          "https://rovidev.pythonanywhere.com/api/services/"
+          `${apiKey}/services/`
         );
         setServices(res.data);
         setTimeout(() => AOS.refresh(), 50);

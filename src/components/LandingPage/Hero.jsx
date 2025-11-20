@@ -9,12 +9,13 @@ const Hero = () => {
 
     const [heroData, setHeroData] = useState(null);
     const { setLoading } = useLoader();
+    const apiKey = process.env.REACT_APP_API_KEY;
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 setLoading(true);
-                const res = await axios.get('https://rovidev.pythonanywhere.com/api/herosection/1/');
+                const res = await axios.get(`${apiKey}/herosection/1/`);
                 setHeroData(res.data);
             } catch (err) {
                 console.error(err);

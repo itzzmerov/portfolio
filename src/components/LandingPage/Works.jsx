@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import AOS from "aos";
+import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
 // BLOBS
 import TriangleBlob from "../../assets/images/triangle-blob.png";
 import ThreeTriangle from "../../assets/images/three-triangle-blob.png";
@@ -9,10 +10,11 @@ const Works = () => {
   const [projects, setProjects] = useState([]);
   const [visibleCount, setVisibleCount] = useState(6);
   const [selectedProject, setSelectedProject] = useState(null);
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     axios
-      .get("https://rovidev.pythonanywhere.com/api/projects/")
+      .get(`${apiKey}/projects/`)
       .then((res) => {
         setProjects(res.data);
         setTimeout(() => AOS.refresh(), 50);
@@ -85,9 +87,9 @@ const Works = () => {
               </p>
               <button
                 onClick={() => setSelectedProject(item)}
-                className="text-left w-auto text-custom-darkish-blue font-semibold hover:underline hover:text-custom-pink"
+                className="flex items-center text-left w-auto text-custom-darkish-blue font-semibold hover:underline hover:text-custom-pink pt-2"
               >
-                Read More
+                Read More <MdOutlineKeyboardDoubleArrowRight />
               </button>
             </div>
           </div>
