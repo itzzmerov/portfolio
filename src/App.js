@@ -6,6 +6,7 @@ import HeroForm from "./components/AdminDashboard/HeroForm";
 import AboutForm from "./components/AdminDashboard/AboutForm";
 import WorksTable from "./components/AdminDashboard/WorksTable";
 import ServicesForm from "./components/AdminDashboard/ServicesForm";
+import Contact from "./components/LandingPage/Contact";
 
 import { useEffect } from "react";
 import AOS from "aos";
@@ -48,6 +49,7 @@ function App() {
           <Route path="about" element={<AboutForm />} />
           <Route path="works" element={<WorksTable />} />
           <Route path="services" element={<ServicesForm />} />
+          <Route path="contact" element={<Contact />} />
         </Route>
       </Routes>
     </Router>

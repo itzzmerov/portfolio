@@ -52,17 +52,29 @@ const Contact = () => {
             </h2>
 
             <div className="flex flex-wrap gap-6 justify-center mb-16" data-aos="fade-up">
-                <a href="mailto:balingbing.johnrovie20@gmail.com" className="text-custom-darkish-blue hover:text-custom-dark-pink">
+                <a href="mailto:balingbing.johnrovie20@gmail.com" className="relative group text-custom-darkish-blue hover:text-custom-dark-pink">
                     <MdEmail fontSize={'40px'} />
+                    <span className="absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-1 text-sm rounded bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                        Send an Email
+                    </span>
                 </a>
-                <a href="https://www.messenger.com/t/itzzmerov" target="_blank" rel="noreferrer" className="text-custom-darkish-blue hover:text-custom-dark-pink">
+                <a href="https://www.messenger.com/t/itzzmerov" target="_blank" rel="noreferrer" className="relative group text-custom-darkish-blue hover:text-custom-dark-pink">
                     <FaFacebookMessenger fontSize={'40px'} />
+                    <span className="absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-1 text-sm rounded bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                        Messenger
+                    </span>
                 </a>
-                <a href="https://www.facebook.com/itzzmerov" target="_blank" rel="noreferrer" className="text-custom-darkish-blue hover:text-custom-dark-pink">
+                <a href="https://www.facebook.com/itzzmerov" target="_blank" rel="noreferrer" className="relative group text-custom-darkish-blue hover:text-custom-dark-pink">
                     <FaFacebook fontSize={'40px'} />
+                    <span className="absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-1 text-sm rounded bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                        Facebook Profile
+                    </span>
                 </a>
-                <a href="linkedin.com/in/johnroviebalingbing" target="_blank" rel="noreferrer" className="text-custom-darkish-blue hover:text-custom-dark-pink">
+                <a href="linkedin.com/in/johnroviebalingbing" target="_blank" rel="noreferrer" className="relative group text-custom-darkish-blue hover:text-custom-dark-pink">
                     <FaLinkedin fontSize={'40px'} />
+                    <span className="absolute -top-7 left-1/2 -translate-x-1/2 px-2 py-1 text-sm rounded bg-black text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                        LinkedIn Profile
+                    </span>
                 </a>
             </div>
 

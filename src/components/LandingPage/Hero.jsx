@@ -50,9 +50,9 @@ const Hero = () => {
                                 Download CV
                             </button>
                         </a>
-                        <a href='#contact'>
-                            <button className="bg-custom-dark-pink text-white font-montserrat font-semibold px-8 py-3 rounded-2xl border-2 border-custom-dark-pink hover:bg-transparent hover:border-2 hover:border-custom-dark-pink hover:text-custom-dark-pink">
-                                Contact Me
+                        <a href='#portfolio'>
+                            <button className="bg-custom-dark-pink text-white font-montserrat font-semibold px-8 py-3 rounded-2xl border-2 border-custom-dark-pink hover:bg-transparent hover:text-custom-dark-pink">
+                                My Works
                             </button>
                         </a>
                     </div>
