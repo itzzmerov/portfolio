@@ -30,7 +30,7 @@ const About = () => {
     if (!aboutData) return <div>Loading...</div>;
 
     return (
-        <section id="about" className="relative overflow-hidden grid grid-cols-1 tablet:grid-cols-1 laptop:grid-cols-2 items-center justify-between pt-24 laptop-large:pt-28 desktop:pt-44 pb-20 px-6 tablet:px-10 laptop-large:px-24 desktop:px-52 desktop-4k:px-80">
+        <section id="about" className="relative overflow-hidden grid grid-cols-1 tablet:grid-cols-1 laptop:grid-cols-2 items-center justify-between pt-10 laptop-large:pt-16 desktop:pt-28 pb-20 px-6 tablet:px-10 laptop-large:px-24 desktop:px-52 desktop-4k:px-80">
 
             <div className="order-1 laptop:order-1 flex justify-center mb-8 laptop:mb-0 relative z-20" data-aos="fade-right">
                 <img src={aboutData.image} alt="Profile" className="h-[300px] tablet:h-[500px] laptop-large:h-[650px]" />
