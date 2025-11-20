@@ -30,13 +30,13 @@ const Works = () => {
   return (
     <section
       id="portfolio"
-      className="relative overflow-hidden px-6 tablet:px-10 laptop:px-24 desktop:px-52 desktop-4k:px-80 pt-28 laptop:pt-20 pb-0 laptop:pb-10"
+      className="relative overflow-hidden px-6 tablet:px-10 laptop:px-24 desktop:px-52 desktop-4k:px-80 pt-10 laptop-large:pt-16 desktop:pt-28 pb-0 laptop:pb-10"
     >
       <h2
         className="relative z-20 text-center text-custom-darkish-blue text-5xl tablet:text-6xl laptop:text-8xl font-titillium font-black underline mb-16"
         data-aos="fade-up"
       >
-        Portfolio
+        My Works
       </h2>
 
       <div
