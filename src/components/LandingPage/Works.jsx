@@ -52,7 +52,7 @@ const Works = () => {
             key={index}
             data-aos="fade-up"
             data-aos-delay={`${index * 100}`}
-            className="w-full tablet:w-[45%] laptop-large:w-[30%] border-2 border-custom-black rounded-xl shadow-md transition"
+            className="w-full tablet:w-[45%] laptop-large:w-[30%] transition"
           >
             <a
               href={item.demo_url}
@@ -64,7 +64,7 @@ const Works = () => {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover rounded-t-xl"
+                  className="w-full h-full object-cover rounded-lg"
                 />
                 <div className="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
                   <h3 className="text-white text-2xl tablet:text-3xl laptop:text-4xl font-bold font-titillium text-center px-4">
@@ -75,17 +75,17 @@ const Works = () => {
             </a>
 
             <div className="flex w-full flex-col">
-              <p className="w-full flex justify-center items-center font-montserrat font-semibold p-3 text-sm tablet:text-base laptop:text-xl">
+              <p className="w-full flex items-center font-montserrat font-semibold py-3 text-sm tablet:text-base laptop:text-xl">
                 {item.title}
               </p>
               <p
-                className="w-full text-center text-custom-black px-3 pb-3 text-sm tablet:text-base laptop:text-lg line-clamp-3"
+                className="w-full text-custom-black pb-3 text-sm tablet:text-base laptop:text-lg line-clamp-3"
               >
                 {item.description}
               </p>
               <button
                 onClick={() => setSelectedProject(item)}
-                className="text-custom-darkish-blue font-semibold mb-4 hover:underline hover:text-custom-pink"
+                className="text-left w-auto text-custom-darkish-blue font-semibold hover:underline hover:text-custom-pink"
               >
                 Read More
               </button>
