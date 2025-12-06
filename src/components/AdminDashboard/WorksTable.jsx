@@ -117,17 +117,9 @@ const WorksTable = () => {
   };
 
   const handleChange = (e) => {
-    const { name, value, files, type, options } = e.target;
+    const { name, value, files } = e.target;
 
-    if (name === "categories") {
-      const selectedOptions = Array.from(options)
-        .filter(option => option.selected)
-        .map(option => parseInt(option.value));
-      setForm((prev) => ({
-        ...prev,
-        categories: selectedOptions,
-      }));
-    } else if (files && files[0]) {
+    if (files && files[0]) {
       setForm((prev) => ({
         ...prev,
         [name]: files[0],
@@ -221,7 +213,6 @@ const WorksTable = () => {
       return;
     }
 
-    // Prevent duplicates (case-insensitive)
     const exists = allCategories.some(cat =>
       cat.name.toLowerCase() === name.toLowerCase()
     );
@@ -242,17 +233,13 @@ const WorksTable = () => {
         }
       );
 
-      // Add new category to list
       const newCat = res.data;
       setAllCategories(prev => [...prev, newCat]);
-
-      // Auto-select it in the form
       setForm(prev => ({
         ...prev,
         categories: [...prev.categories, newCat.id],
       }));
-
-      setNewCategoryInput(""); // Clear input
+      setNewCategoryInput("");
 
       Swal.fire({
         icon: "success",
@@ -276,6 +263,11 @@ const WorksTable = () => {
     return text.length > maxLength ? text.substring(0, maxLength) + "…" : text;
   };
 
+  const getCategoryNameById = (id) => {
+    const cat = allCategories.find(c => c.id === id);
+    return cat ? cat.name : `Unknown (${id})`;
+  };
+
   return (
     <div className="bg-white p-6 rounded shadow space-y-4">
       <div className="flex justify-between items-center">
@@ -294,22 +286,20 @@ const WorksTable = () => {
           <tr>
             <th className="border p-2">Title</th>
             <th className="border p-2">Description</th>
-            <th className="border p-2">Categories</th> {/* ← NEW COLUMN */}
+            <th className="border p-2">Categories</th>
             <th className="border p-2">Actions</th>
           </tr>
         </thead>
         <tbody>
           {projects.map((p) => (
             <tr key={p.id}>
-              <td className="border p-2">{p.title}</td>
-              {/* Truncate to one line */}
-              <td className="border p-2 max-w-xs">
+              <td className="border p-2 max-w-xs">{p.title}</td>
+              <td className="border p-2 max-w-lg">
                 <div className="truncate" title={p.description}>
                   {truncateDescription(p.description, 80)}
                 </div>
               </td>
-              {/* Display category names */}
-              <td className="border p-2">
+              <td className="border p-2 max-w-xs">
                 {p.categories?.map(cat => cat.name).join(", ") || "–"}
               </td>
               <td className="border p-2 space-x-2">
@@ -384,23 +374,62 @@ const WorksTable = () => {
                 />
               </div>
 
-              {/* Category Management */}
+              {/* Category Management — CHIPS + ADD */}
               <div>
-                <label>Categories:</label>
+                <label className="block mb-2">Categories:</label>
 
-                {/* Multi-select dropdown */}
+                {/* Selected categories as chips */}
+                <div className="flex flex-wrap gap-2 mb-3 min-h-[32px]">
+                  {form.categories.length > 0 ? (
+                    form.categories.map((catId) => (
+                      <div
+                        key={catId}
+                        className="flex items-center bg-custom-darkish-blue text-white text-xs px-2 py-1 rounded"
+                      >
+                        {getCategoryNameById(catId)}
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setForm(prev => ({
+                              ...prev,
+                              categories: prev.categories.filter(id => id !== catId)
+                            }));
+                          }}
+                          className="ml-1 text-white hover:text-gray-200 focus:outline-none"
+                          aria-label={`Remove ${getCategoryNameById(catId)}`}
+                        >
+                          &times;
+                        </button>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-gray-500 text-sm italic">No categories selected</p>
+                  )}
+                </div>
+
+                {/* Dropdown to add existing categories */}
                 <select
-                  name="categories"
-                  multiple
-                  value={form.categories}
-                  onChange={handleChange}
-                  className="w-full border p-2 rounded h-32 mb-2"
+                  value=""
+                  onChange={(e) => {
+                    const catId = parseInt(e.target.value);
+                    if (catId && !form.categories.includes(catId)) {
+                      setForm(prev => ({
+                        ...prev,
+                        categories: [...prev.categories, catId]
+                      }));
+                    }
+                    e.target.value = "";
+                  }}
+                  className="w-full border p-2 rounded mb-2"
                 >
-                  {allCategories.map(cat => (
-                    <option key={cat.id} value={cat.id}>
-                      {cat.name}
-                    </option>
-                  ))}
+                  <option value="">— Add existing category —</option>
+                  {allCategories
+                    .filter(cat => !form.categories.includes(cat.id))
+                    .map(cat => (
+                      <option key={cat.id} value={cat.id}>
+                        {cat.name}
+                      </option>
+                    ))}
                 </select>
 
                 {/* Add new category input + button */}
@@ -421,13 +450,13 @@ const WorksTable = () => {
                   <button
                     type="button"
                     onClick={handleAddNewCategory}
-                    className="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded text-sm"
+                    className="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded text-sm whitespace-nowrap"
                   >
-                    + Add
+                    + Add New
                   </button>
                 </div>
                 <p className="text-xs text-gray-500 mt-1">
-                  Hold Ctrl/Cmd to select multiple. Press Enter to add new category.
+                  Click “+ Add New” to create and auto-select a category.
                 </p>
               </div>
 
