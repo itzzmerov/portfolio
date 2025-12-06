@@ -10,19 +10,26 @@ const WorksTable = () => {
     image: null,
     demo_url: "",
     code_url: "",
+    categories: [],
   });
   const [editingId, setEditingId] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [loading, setLoading] = useState(false);
   const [imagePreviewUrl, setImagePreviewUrl] = useState("");
+  const [allCategories, setAllCategories] = useState([]);
+  const [newCategoryInput, setNewCategoryInput] = useState("");
 
   const token = localStorage.getItem("authToken");
   const apiKey = process.env.REACT_APP_API_KEY;
 
   const fetchProjects = async () => {
     try {
-      const res = await axios.get(`${apiKey}/projects/`);
-      setProjects(res.data);
+      const [projectsRes, categoriesRes] = await Promise.all([
+        axios.get(`${apiKey}/projects/`),
+        axios.get(`${apiKey}/categories/`),
+      ]);
+      setProjects(projectsRes.data);
+      setAllCategories(categoriesRes.data);
     } catch (err) {
       console.error(err);
     }
@@ -80,12 +87,15 @@ const WorksTable = () => {
   };
 
   const handleEdit = (project) => {
+    const categoryIds = project.categories?.map(cat => cat.id) || [];
+
     setForm({
       title: project.title || "",
       description: project.description || "",
       image: null,
       demo_url: project.demo_url || "",
       code_url: project.code_url || "",
+      categories: categoryIds,
     });
     setEditingId(project.id);
     setShowForm(true);
@@ -99,6 +109,7 @@ const WorksTable = () => {
       image: null,
       demo_url: "",
       code_url: "",
+      categories: [],
     });
     setEditingId(null);
     setShowForm(true);
@@ -106,9 +117,17 @@ const WorksTable = () => {
   };
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
+    const { name, value, files, type, options } = e.target;
 
-    if (files && files[0]) {
+    if (name === "categories") {
+      const selectedOptions = Array.from(options)
+        .filter(option => option.selected)
+        .map(option => parseInt(option.value));
+      setForm((prev) => ({
+        ...prev,
+        categories: selectedOptions,
+      }));
+    } else if (files && files[0]) {
       setForm((prev) => ({
         ...prev,
         [name]: files[0],
@@ -136,6 +155,11 @@ const WorksTable = () => {
     formData.append("description", form.description);
     formData.append("demo_url", form.demo_url);
     formData.append("code_url", form.code_url);
+
+    form.categories.forEach(catId => {
+      formData.append("categories", catId);
+    });
+
     if (form.image) {
       formData.append("image", form.image);
     }
@@ -190,6 +214,68 @@ const WorksTable = () => {
     }
   };
 
+  const handleAddNewCategory = async () => {
+    const name = newCategoryInput.trim();
+    if (!name) {
+      Swal.fire("Warning", "Category name cannot be empty.", "warning");
+      return;
+    }
+
+    // Prevent duplicates (case-insensitive)
+    const exists = allCategories.some(cat =>
+      cat.name.toLowerCase() === name.toLowerCase()
+    );
+    if (exists) {
+      Swal.fire("Info", "This category already exists.", "info");
+      return;
+    }
+
+    try {
+      const res = await axios.post(
+        `${apiKey}/categories/`,
+        { name },
+        {
+          headers: {
+            Authorization: `Token ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      // Add new category to list
+      const newCat = res.data;
+      setAllCategories(prev => [...prev, newCat]);
+
+      // Auto-select it in the form
+      setForm(prev => ({
+        ...prev,
+        categories: [...prev.categories, newCat.id],
+      }));
+
+      setNewCategoryInput(""); // Clear input
+
+      Swal.fire({
+        icon: "success",
+        title: "Category Added!",
+        text: `"${name}" has been created and selected.`,
+        timer: 1500,
+        showConfirmButton: false,
+      });
+    } catch (err) {
+      console.error(err);
+      let errorMsg = "Failed to add category.";
+      if (err.response?.data?.name) {
+        errorMsg = err.response.data.name.join(", ");
+      }
+      Swal.fire("Error", errorMsg, "error");
+    }
+  };
+
+  const truncateDescription = (text, maxLength = 100) => {
+    if (!text) return "";
+    return text.length > maxLength ? text.substring(0, maxLength) + "…" : text;
+  };
+
   return (
     <div className="bg-white p-6 rounded shadow space-y-4">
       <div className="flex justify-between items-center">
@@ -208,6 +294,7 @@ const WorksTable = () => {
           <tr>
             <th className="border p-2">Title</th>
             <th className="border p-2">Description</th>
+            <th className="border p-2">Categories</th> {/* ← NEW COLUMN */}
             <th className="border p-2">Actions</th>
           </tr>
         </thead>
@@ -215,17 +302,26 @@ const WorksTable = () => {
           {projects.map((p) => (
             <tr key={p.id}>
               <td className="border p-2">{p.title}</td>
-              <td className="border p-2">{p.description}</td>
+              {/* Truncate to one line */}
+              <td className="border p-2 max-w-xs">
+                <div className="truncate" title={p.description}>
+                  {truncateDescription(p.description, 80)}
+                </div>
+              </td>
+              {/* Display category names */}
+              <td className="border p-2">
+                {p.categories?.map(cat => cat.name).join(", ") || "–"}
+              </td>
               <td className="border p-2 space-x-2">
                 <button
                   onClick={() => handleEdit(p)}
-                  className="text-custom-white bg-custom-blue hover:bg-custom-darkish-blue px-5 py-1 rounded-lg"
+                  className="text-custom-white bg-custom-blue hover:bg-custom-darkish-blue px-3 py-1 rounded"
                 >
                   Edit
                 </button>
                 <button
                   onClick={() => handleDelete(p.id)}
-                  className="text-custom-white bg-red-500 hover:bg-red-800 px-5 py-1 rounded-lg"
+                  className="text-custom-white bg-red-500 hover:bg-red-800 px-3 py-1 rounded"
                 >
                   Delete
                 </button>
@@ -261,6 +357,7 @@ const WorksTable = () => {
                   value={form.title}
                   onChange={handleChange}
                   className="w-full border p-2 rounded"
+                  required
                 />
               </div>
 
@@ -270,8 +367,9 @@ const WorksTable = () => {
                   name="description"
                   value={form.description}
                   onChange={handleChange}
-                  rows="6"
+                  rows="4"
                   className="w-full border p-2 rounded"
+                  required
                 />
               </div>
 
@@ -286,16 +384,52 @@ const WorksTable = () => {
                 />
               </div>
 
-              {/* <div>
-                <label>Code URL:</label>
-                <input
-                  type="text"
-                  name="code_url"
-                  value={form.code_url}
+              {/* Category Management */}
+              <div>
+                <label>Categories:</label>
+
+                {/* Multi-select dropdown */}
+                <select
+                  name="categories"
+                  multiple
+                  value={form.categories}
                   onChange={handleChange}
-                  className="w-full border p-2 rounded"
-                />
-              </div> */}
+                  className="w-full border p-2 rounded h-32 mb-2"
+                >
+                  {allCategories.map(cat => (
+                    <option key={cat.id} value={cat.id}>
+                      {cat.name}
+                    </option>
+                  ))}
+                </select>
+
+                {/* Add new category input + button */}
+                <div className="flex space-x-2">
+                  <input
+                    type="text"
+                    value={newCategoryInput}
+                    onChange={(e) => setNewCategoryInput(e.target.value)}
+                    placeholder="New category name"
+                    className="flex-1 border p-2 rounded text-sm"
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter") {
+                        e.preventDefault();
+                        handleAddNewCategory();
+                      }
+                    }}
+                  />
+                  <button
+                    type="button"
+                    onClick={handleAddNewCategory}
+                    className="bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded text-sm"
+                  >
+                    + Add
+                  </button>
+                </div>
+                <p className="text-xs text-gray-500 mt-1">
+                  Hold Ctrl/Cmd to select multiple. Press Enter to add new category.
+                </p>
+              </div>
 
               <div>
                 <label>Image:</label>
@@ -304,6 +438,7 @@ const WorksTable = () => {
                   name="image"
                   onChange={handleChange}
                   className="w-full"
+                  accept="image/*"
                 />
                 {imagePreviewUrl && (
                   <img
