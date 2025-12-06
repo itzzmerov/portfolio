@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './LandingPage/Navbar'
 import Hero from './LandingPage/Hero'
 import About from './LandingPage/About'
+import Skills from './LandingPage/Skills'
 import Works from './LandingPage/Works'
 import Contact from './LandingPage/Contact'
 import Footer from './LandingPage/Footer'
@@ -14,6 +15,7 @@ const PortfolioLayout = () => {
             <Hero />
             <About />
             {/* <Services /> */}
+            <Skills />
             <Works />
             <Contact />
             <Footer />
