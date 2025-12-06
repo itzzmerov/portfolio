@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+// Your existing icon imports...
 import javascriptIcon from "../../assets/skills-img/js.svg";
 import htmlIcon from "../../assets/skills-img/html.svg";
 import cssIcon from "../../assets/skills-img/css.svg";
@@ -18,7 +19,7 @@ import githubIcon from "../../assets/skills-img/github.svg";
 import vscodeIcon from "../../assets/skills-img/vs code.svg";
 import figmaIcon from "../../assets/skills-img/figma.svg";
 import firebaseIcon from "../../assets/skills-img/firebase.svg";
-import restIcon from "../../assets/skills-img/react.svg";
+import restIcon from "../../assets/skills-img/react.svg"; // ← You might want to fix this (should be REST icon)
 import netlifyIcon from "../../assets/skills-img/netlify.svg";
 
 import TriangleBlob from "../../assets/images/triangle-blob.png";
@@ -88,6 +89,19 @@ const Skills = () => {
     ];
 
     const [hoveredSkill, setHoveredSkill] = useState(null);
+    const [clickedSkill, setClickedSkill] = useState(null);
+
+    // Show percentage if hovered OR clicked
+    const isSkillActive = (skillName) => {
+        return hoveredSkill === skillName || clickedSkill === skillName;
+    };
+
+    const handleSkillClick = (skillName) => {
+        // Toggle: if already clicked, unclick it
+        setClickedSkill(clickedSkill === skillName ? null : skillName);
+        // Also update hover state (optional)
+        setHoveredSkill(clickedSkill === skillName ? null : skillName);
+    };
 
     return (
         <section
@@ -110,12 +124,15 @@ const Skills = () => {
                         <div className="grid grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 gap-6">
                             {group.items.map((skill) => {
                                 const icon = getIcon(skill.name);
+                                const isActive = isSkillActive(skill.name);
+
                                 return (
                                     <div
                                         key={skill.name}
-                                        className="bg-white p-5 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 flex items-start"
+                                        className="bg-white p-5 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100 flex items-start cursor-pointer"
                                         onMouseEnter={() => setHoveredSkill(skill.name)}
                                         onMouseLeave={() => setHoveredSkill(null)}
+                                        onClick={() => handleSkillClick(skill.name)}
                                     >
                                         {icon && (
                                             <div className="flex-shrink-0 w-16 h-16 mr-4">
@@ -132,7 +149,7 @@ const Skills = () => {
                                                 <span className="font-semibold text-custom-darkish-blue font-montserrat">
                                                     {skill.name}
                                                 </span>
-                                                {hoveredSkill === skill.name && (
+                                                {isActive && (
                                                     <span className="text-xs bg-custom-darkish-blue text-white px-2 py-1 rounded-full whitespace-nowrap">
                                                         {skill.level}% proficient
                                                     </span>
@@ -142,7 +159,7 @@ const Skills = () => {
                                                 <div
                                                     className="bg-custom-darkish-blue h-2.5 rounded-full transition-all duration-1000 ease-out"
                                                     style={{
-                                                        width: `${hoveredSkill === skill.name ? skill.level : Math.min(20, skill.level)}%`,
+                                                        width: `${isActive ? skill.level : Math.min(20, skill.level)}%`,
                                                     }}
                                                 ></div>
                                             </div>

@@ -49,6 +49,7 @@ const Navbar = () => {
                 <div className="absolute top-[100%] left-0 w-full bg-[#EFFAFD] py-6 flex flex-col items-center space-y-4 text-custom-darkish-blue font-league font-semibold text-lg shadow-md tablet:hidden">
                     <Link to="home" smooth={true} duration={500} onClick={toggleMenu} className="cursor-pointer hover:text-custom-pink">Home</Link>
                     <Link to="about" smooth={true} duration={500} onClick={toggleMenu} className="cursor-pointer hover:text-custom-pink">About</Link>
+                    <Link to="skills" smooth={true} duration={500} onClick={toggleMenu} className="cursor-pointer hover:text-custom-pink">Skills</Link>
                     <Link to="portfolio" smooth={true} duration={500} onClick={toggleMenu} className="cursor-pointer hover:text-custom-pink">Portfolio</Link>
                     <Link to="contact" smooth={true} duration={500} onClick={toggleMenu} className="cursor-pointer hover:text-custom-pink">Contact</Link>
                     <a href="https://www.github.com/itzzmerov" target="_blank" rel="noreferrer">
