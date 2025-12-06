@@ -29,8 +29,8 @@ const Works = () => {
           categoryList: Array.isArray(p.categories)
             ? p.categories // assuming your API returns category names or IDs
             : p.categories
-            ? [p.categories]
-            : [],
+              ? [p.categories]
+              : [],
         }));
 
         setProjects(normalizedProjects);
@@ -47,16 +47,16 @@ const Works = () => {
   }, [apiKey]);
 
   // Filter projects based on selected category
-  const filteredProjects = 
+  const filteredProjects =
     activeCategory === "All"
       ? projects
       : projects.filter((p) =>
-          p.categoryList.some((cat) =>
-            typeof cat === "string"
-              ? cat === activeCategory
-              : cat.name === activeCategory || cat.id === activeCategory
-          )
-        );
+        p.categoryList.some((cat) =>
+          typeof cat === "string"
+            ? cat === activeCategory
+            : cat.name === activeCategory || cat.id === activeCategory
+        )
+      );
 
   const visibleProjects = filteredProjects.slice(0, visibleCount);
   const projectCount = visibleProjects.length;
@@ -91,10 +91,9 @@ const Works = () => {
               setVisibleCount(6);
             }}
             className={`px-5 py-2 rounded-full text-sm tablet:text-base font-semibold border transition
-              ${
-                activeCategory === cat
-                  ? "bg-custom-darkish-blue text-white border-custom-darkish-blue"
-                  : "bg-white text-custom-darkish-blue border-custom-darkish-blue hover:bg-custom-darkish-blue hover:text-white"
+              ${activeCategory === cat
+                ? "bg-custom-dark-pink text-white border-custom-dark-pink border-2"
+                : "text-custom-dark-pink border-custom-dark-pink border-2 hover:bg-custom-dark-pink hover:text-white"
               }`}
           >
             {cat}
@@ -104,13 +103,12 @@ const Works = () => {
 
       {/* Projects Grid */}
       <div
-        className={`relative z-20 flex flex-wrap gap-6 ${
-          projectCount === 1
-            ? "justify-center"
-            : projectCount === 2
+        className={`relative z-20 flex flex-wrap gap-6 ${projectCount === 1
+          ? "justify-center"
+          : projectCount === 2
             ? "justify-center tablet:justify-center laptop:justify-center"
             : "justify-start tablet:justify-between laptop:justify-between"
-        }`}
+          }`}
       >
         {visibleProjects.map((item, index) => (
           <div
@@ -131,7 +129,7 @@ const Works = () => {
                   alt={item.title}
                   className="w-full h-full object-cover rounded-lg"
                 />
-                <div className="absolute inset-0 bg-black/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
+                <div className="absolute inset-0 bg-black/70 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
                   <h3 className="text-white text-2xl tablet:text-3xl laptop:text-4xl font-bold font-titillium text-center px-4">
                     Click to Visit
                   </h3>
