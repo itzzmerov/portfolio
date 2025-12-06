@@ -3,6 +3,7 @@ import Navbar from './LandingPage/Navbar'
 import Hero from './LandingPage/Hero'
 import About from './LandingPage/About'
 import Skills from './LandingPage/Skills'
+// import Experience from './LandingPage/Experience'
 import Works from './LandingPage/Works'
 import Contact from './LandingPage/Contact'
 import Footer from './LandingPage/Footer'
@@ -16,6 +17,7 @@ const PortfolioLayout = () => {
             <About />
             {/* <Services /> */}
             <Skills />
+            {/* <Experience /> */}
             <Works />
             <Contact />
             <Footer />
