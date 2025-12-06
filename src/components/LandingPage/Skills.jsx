@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// Your existing icon imports...
 import javascriptIcon from "../../assets/skills-img/js.svg";
 import htmlIcon from "../../assets/skills-img/html.svg";
 import cssIcon from "../../assets/skills-img/css.svg";
@@ -19,7 +18,7 @@ import githubIcon from "../../assets/skills-img/github.svg";
 import vscodeIcon from "../../assets/skills-img/vs code.svg";
 import figmaIcon from "../../assets/skills-img/figma.svg";
 import firebaseIcon from "../../assets/skills-img/firebase.svg";
-import restIcon from "../../assets/skills-img/react.svg"; // ← You might want to fix this (should be REST icon)
+import restIcon from "../../assets/skills-img/rest api.svg";
 import netlifyIcon from "../../assets/skills-img/netlify.svg";
 
 import TriangleBlob from "../../assets/images/triangle-blob.png";
@@ -91,15 +90,12 @@ const Skills = () => {
     const [hoveredSkill, setHoveredSkill] = useState(null);
     const [clickedSkill, setClickedSkill] = useState(null);
 
-    // Show percentage if hovered OR clicked
     const isSkillActive = (skillName) => {
         return hoveredSkill === skillName || clickedSkill === skillName;
     };
 
     const handleSkillClick = (skillName) => {
-        // Toggle: if already clicked, unclick it
         setClickedSkill(clickedSkill === skillName ? null : skillName);
-        // Also update hover state (optional)
         setHoveredSkill(clickedSkill === skillName ? null : skillName);
     };
 
