@@ -9,33 +9,54 @@ import ThreeTriangle from "../../assets/images/three-triangle-blob.png";
 
 const Works = () => {
   const [projects, setProjects] = useState([]);
+  const [categories, setCategories] = useState(["All"]); // Start with "All" only
   const [visibleCount, setVisibleCount] = useState(6);
   const [selectedProject, setSelectedProject] = useState(null);
   const [activeCategory, setActiveCategory] = useState("All");
 
   const apiKey = process.env.REACT_APP_API_KEY;
 
-  const categories = ["All", "Web Development", "UI/UX", "Full Stack", "Mobile"];
-
+  // Fetch both projects and categories from the backend
   useEffect(() => {
-    axios
-      .get(`${apiKey}/projects/`)
-      .then((res) => {
-        const projectsWithCategory = res.data.map((p) => ({
+    const fetchProjects = axios.get(`${apiKey}/projects/`);
+    const fetchCategories = axios.get(`${apiKey}/categories/`);
+
+    Promise.all([fetchProjects, fetchCategories])
+      .then(([projectsRes, categoriesRes]) => {
+        // Normalize projects: ensure category is always an array of strings
+        const normalizedProjects = projectsRes.data.map((p) => ({
           ...p,
-          category: p.category || "Web Development",
+          categoryList: Array.isArray(p.categories)
+            ? p.categories // assuming your API returns category names or IDs
+            : p.categories
+            ? [p.categories]
+            : [],
         }));
 
-        setProjects(projectsWithCategory);
+        setProjects(normalizedProjects);
+
+        // Build categories list from API, prepend "All"
+        const categoryNames = categoriesRes.data.map((cat) =>
+          typeof cat === "string" ? cat : cat.name || cat.title || cat.id
+        );
+        setCategories(["All", ...categoryNames]);
+
         setTimeout(() => AOS.refresh(), 50);
       })
-      .catch((err) => console.error("Error fetching projects:", err));
+      .catch((err) => console.error("Error fetching data:", err));
   }, [apiKey]);
 
-  const filteredProjects =
+  // Filter projects based on selected category
+  const filteredProjects = 
     activeCategory === "All"
       ? projects
-      : projects.filter((p) => p.category === activeCategory);
+      : projects.filter((p) =>
+          p.categoryList.some((cat) =>
+            typeof cat === "string"
+              ? cat === activeCategory
+              : cat.name === activeCategory || cat.id === activeCategory
+          )
+        );
 
   const visibleProjects = filteredProjects.slice(0, visibleCount);
   const projectCount = visibleProjects.length;
@@ -56,6 +77,7 @@ const Works = () => {
         My Works
       </h2>
 
+      {/* Category Filter Buttons */}
       <div
         className="relative z-20 flex flex-wrap justify-center gap-3 mb-12"
         data-aos="fade-up"
@@ -66,7 +88,7 @@ const Works = () => {
             key={cat}
             onClick={() => {
               setActiveCategory(cat);
-              setVisibleCount(6); 
+              setVisibleCount(6);
             }}
             className={`px-5 py-2 rounded-full text-sm tablet:text-base font-semibold border transition
               ${
@@ -80,6 +102,7 @@ const Works = () => {
         ))}
       </div>
 
+      {/* Projects Grid */}
       <div
         className={`relative z-20 flex flex-wrap gap-6 ${
           projectCount === 1
@@ -135,6 +158,7 @@ const Works = () => {
         ))}
       </div>
 
+      {/* "See More" Button */}
       {visibleCount < filteredProjects.length && (
         <div className="flex justify-center mt-8">
           <button
