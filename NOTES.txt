@@ -1,3 +1,0 @@
-COMMANDS TO DEPLOY PORTFOLIO WEBSITE:
-    npm start => Run the server
-    npm run deploy => Push the changes to GitHub Pages

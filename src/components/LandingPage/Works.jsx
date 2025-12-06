@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import AOS from "aos";
 import { MdOutlineKeyboardDoubleArrowRight } from "react-icons/md";
+
 // BLOBS
 import TriangleBlob from "../../assets/images/triangle-blob.png";
 import ThreeTriangle from "../../assets/images/three-triangle-blob.png";
@@ -10,24 +11,38 @@ const Works = () => {
   const [projects, setProjects] = useState([]);
   const [visibleCount, setVisibleCount] = useState(6);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [activeCategory, setActiveCategory] = useState("All");
+
   const apiKey = process.env.REACT_APP_API_KEY;
+
+  const categories = ["All", "Web Development", "UI/UX", "Full Stack", "Mobile"];
 
   useEffect(() => {
     axios
       .get(`${apiKey}/projects/`)
       .then((res) => {
-        setProjects(res.data);
+        const projectsWithCategory = res.data.map((p) => ({
+          ...p,
+          category: p.category || "Web Development",
+        }));
+
+        setProjects(projectsWithCategory);
         setTimeout(() => AOS.refresh(), 50);
       })
       .catch((err) => console.error("Error fetching projects:", err));
   }, [apiKey]);
 
-  const handleSeeMore = () => {
-    setVisibleCount(projects.length);
-  };
+  const filteredProjects =
+    activeCategory === "All"
+      ? projects
+      : projects.filter((p) => p.category === activeCategory);
 
-  const visibleProjects = projects.slice(0, visibleCount);
+  const visibleProjects = filteredProjects.slice(0, visibleCount);
   const projectCount = visibleProjects.length;
+
+  const handleSeeMore = () => {
+    setVisibleCount(filteredProjects.length);
+  };
 
   return (
     <section
@@ -35,19 +50,44 @@ const Works = () => {
       className="relative overflow-hidden px-6 tablet:px-10 laptop:px-24 desktop:px-52 desktop-4k:px-80 pt-10 laptop-large:pt-16 desktop:pt-28 pb-0 laptop:pb-10"
     >
       <h2
-        className="relative z-20 text-center text-custom-darkish-blue text-4xl tablet:text-4xl laptop:text-7xl font-titillium font-black underline mb-16"
+        className="relative z-20 text-center text-custom-darkish-blue text-4xl tablet:text-4xl laptop:text-7xl font-titillium font-black underline mb-12"
         data-aos="fade-up"
       >
         My Works
       </h2>
 
       <div
-        className={`relative z-20 flex flex-wrap gap-6 ${projectCount === 1
-          ? "justify-center"
-          : projectCount === 2
+        className="relative z-20 flex flex-wrap justify-center gap-3 mb-12"
+        data-aos="fade-up"
+        data-aos-delay="100"
+      >
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => {
+              setActiveCategory(cat);
+              setVisibleCount(6); 
+            }}
+            className={`px-5 py-2 rounded-full text-sm tablet:text-base font-semibold border transition
+              ${
+                activeCategory === cat
+                  ? "bg-custom-darkish-blue text-white border-custom-darkish-blue"
+                  : "bg-white text-custom-darkish-blue border-custom-darkish-blue hover:bg-custom-darkish-blue hover:text-white"
+              }`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <div
+        className={`relative z-20 flex flex-wrap gap-6 ${
+          projectCount === 1
+            ? "justify-center"
+            : projectCount === 2
             ? "justify-center tablet:justify-center laptop:justify-center"
             : "justify-start tablet:justify-between laptop:justify-between"
-          }`}
+        }`}
       >
         {visibleProjects.map((item, index) => (
           <div
@@ -62,7 +102,7 @@ const Works = () => {
               rel="noopener noreferrer"
               className="flex-1"
             >
-              <div className="relative group w-full h-[150px] tablet:h-[200px] laptop:h-[250px] desktop:h-[270px]">
+              <div className="relative group w-full">
                 <img
                   src={item.image}
                   alt={item.title}
@@ -80,11 +120,10 @@ const Works = () => {
               <p className="w-full flex items-center font-montserrat font-semibold py-3 text-sm tablet:text-base laptop:text-xl">
                 {item.title}
               </p>
-              <p
-                className="w-full text-custom-black pb-3 text-sm tablet:text-base laptop:text-lg line-clamp-3"
-              >
+              <p className="w-full text-custom-black pb-3 text-sm tablet:text-base laptop:text-lg line-clamp-3">
                 {item.description}
               </p>
+
               <button
                 onClick={() => setSelectedProject(item)}
                 className="flex items-center text-left w-auto text-custom-darkish-blue font-semibold hover:underline hover:text-custom-pink pt-2"
@@ -96,8 +135,7 @@ const Works = () => {
         ))}
       </div>
 
-      {/* Show "See More" if there are more items */}
-      {visibleCount < projects.length && (
+      {visibleCount < filteredProjects.length && (
         <div className="flex justify-center mt-8">
           <button
             onClick={handleSeeMore}
@@ -108,7 +146,7 @@ const Works = () => {
         </div>
       )}
 
-      {/* Blobs */}
+      {/* BLOBS */}
       <img
         src={ThreeTriangle}
         alt="Three Triangle Blob"
@@ -120,7 +158,7 @@ const Works = () => {
         className="absolute top-20 tablet:top-14 laptop:top-36 right-[-150px] tablet:right-[-200px] laptop:right-[-250px] w-[300px] tablet:w-[400px] laptop:w-[500px] opacity-50 rotate-180 z-10"
       />
 
-      {/* Modal */}
+      {/* MODAL */}
       {selectedProject && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50">
           <div className="bg-white rounded-2xl shadow-xl max-w-lg w-[90%] p-6 relative">
@@ -130,17 +168,21 @@ const Works = () => {
             >
               &times;
             </button>
+
             <h3 className="text-2xl font-bold mb-4 text-custom-darkish-blue text-center">
               {selectedProject.title}
             </h3>
+
             <img
               src={selectedProject.image}
               alt={selectedProject.title}
               className="w-full h-56 object-cover rounded-md mb-4"
             />
+
             <p className="text-gray-700 text-justify mb-4">
               {selectedProject.description}
             </p>
+
             <div className="flex justify-center">
               <a
                 href={selectedProject.demo_url}
