@@ -2,54 +2,50 @@ import { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-// Import icons — add more as needed
-import javascriptIcon from "../../assets/icons/javascript.svg";
-import firebaseIcon from "../../assets/icons/firebase.svg";
-import pythonIcon from "../../assets/icons/python.svg";
-import html5Icon from "../../assets/icons/html5.svg";
-import css3Icon from "../../assets/icons/css3.svg";
-import sqlIcon from "../../assets/icons/sql.svg";
+import javascriptIcon from "../../assets/skills-img/js.svg";
+import htmlIcon from "../../assets/skills-img/html.svg";
+import cssIcon from "../../assets/skills-img/css.svg";
+import pythonIcon from "../../assets/skills-img/python.svg";
+import sqlIcon from "../../assets/skills-img/sql.svg";
 
-import reactIcon from "../../assets/icons/react.svg";
-import nextjsIcon from "../../assets/icons/nextjs.svg";
-import tailwindIcon from "../../assets/icons/tailwind.svg";
-import djangoIcon from "../../assets/icons/django.svg";
-import nodejsIcon from "../../assets/icons/nodejs.svg";
-import expressIcon from "../../assets/icons/express.svg";
+import reactIcon from "../../assets/skills-img/react.svg";
+import tailwindIcon from "../../assets/skills-img/tailwind.svg";
+import djangoIcon from "../../assets/skills-img/django.svg";
+import angularIcon from "../../assets/skills-img/angular.svg";
+import bootstrapIcon from "../../assets/skills-img/bootstrap.svg";
 
-import githubIcon from "../../assets/icons/github.svg";
-import vscodeIcon from "../../assets/icons/vscode.svg";
-import figmaIcon from "../../assets/icons/figma.svg";
-import postgresqlIcon from "../../assets/icons/postgresql.svg";
-import restIcon from "../../assets/icons/rest.svg";
-import netlifyIcon from "../../assets/icons/netlify.svg";
+import githubIcon from "../../assets/skills-img/github.svg";
+import vscodeIcon from "../../assets/skills-img/vs code.svg";
+import figmaIcon from "../../assets/skills-img/figma.svg";
+import firebaseIcon from "../../assets/skills-img/firebase.svg";
+import restIcon from "../../assets/skills-img/react.svg";
+import netlifyIcon from "../../assets/skills-img/netlify.svg";
 
 import TriangleBlob from "../../assets/images/triangle-blob.png";
 import ThreeTriangle from "../../assets/images/three-triangle-blob.png";
 
-// Helper: map skill name to icon
 const getIcon = (name) => {
     const iconMap = {
         "JavaScript": javascriptIcon,
+        "HTML5": htmlIcon,
+        "CSS3": cssIcon,
         "Python": pythonIcon,
-        "HTML5": html5Icon,
-        "CSS3": css3Icon,
-        "Firebase": firebaseIcon,
         "SQL": sqlIcon,
+
         "React": reactIcon,
-        "Next.js": nextjsIcon,
         "Tailwind CSS": tailwindIcon,
         "Django": djangoIcon,
-        "Node.js": nodejsIcon,
-        "Express": expressIcon,
+        "AngularJS": angularIcon,
+        "Bootstrap": bootstrapIcon,
+
         "Git & GitHub": githubIcon,
         "VS Code": vscodeIcon,
         "Figma": figmaIcon,
-        "PostgreSQL": postgresqlIcon,
+        "Firebase": firebaseIcon,
         "REST APIs": restIcon,
-        "Netlify / Vercel": netlifyIcon,
+        "Netlify": netlifyIcon,
     };
-    return iconMap[name] || ""; // fallback to empty if not found
+    return iconMap[name] || "";
 };
 
 const Skills = () => {
@@ -62,33 +58,31 @@ const Skills = () => {
             category: "Languages",
             items: [
                 { name: "JavaScript", level: 90 },
-                { name: "Python", level: 80 },
                 { name: "HTML5", level: 95 },
                 { name: "CSS3", level: 90 },
-                { name: "Firebase", level: 75 },
-                { name: "SQL", level: 60 },
+                { name: "Python", level: 80 },
+                { name: "SQL", level: 70 },
             ],
         },
         {
             category: "Frameworks & Libraries",
             items: [
                 { name: "React", level: 90 },
-                { name: "Next.js", level: 80 },
                 { name: "Tailwind CSS", level: 95 },
                 { name: "Django", level: 85 },
-                { name: "Node.js", level: 80 },
-                { name: "Express", level: 75 },
+                { name: "AngularJS", level: 75 },
+                { name: "Bootstrap", level: 85 },
             ],
         },
         {
             category: "Tools & Platforms",
             items: [
-                { name: "Git & GitHub", level: 90 },
-                { name: "VS Code", level: 95 },
-                { name: "Figma", level: 80 },
-                { name: "PostgreSQL", level: 75 },
-                { name: "REST APIs", level: 85 },
-                { name: "Netlify / Vercel", level: 90 },
+                { name: "Git & GitHub", level: 95 },
+                { name: "VS Code", level: 90 },
+                { name: "Figma", level: 85 },
+                { name: "Netlify", level: 90 },
+                { name: "Firebase", level: 75 },
+                { name: "REST APIs", level: 70 },
             ],
         },
     ];
@@ -123,9 +117,8 @@ const Skills = () => {
                                         onMouseEnter={() => setHoveredSkill(skill.name)}
                                         onMouseLeave={() => setHoveredSkill(null)}
                                     >
-                                        {/* Icon */}
                                         {icon && (
-                                            <div className="flex-shrink-0 w-12 h-12 mr-4">
+                                            <div className="flex-shrink-0 w-16 h-16 mr-4">
                                                 <img
                                                     src={icon}
                                                     alt={skill.name}
@@ -134,7 +127,6 @@ const Skills = () => {
                                             </div>
                                         )}
 
-                                        {/* Skill Info */}
                                         <div className="flex-1">
                                             <div className="flex justify-between items-start mb-2">
                                                 <span className="font-semibold text-custom-darkish-blue font-montserrat">
@@ -163,7 +155,6 @@ const Skills = () => {
                 ))}
             </div>
 
-            {/* Blobs */}
             <img
                 src={ThreeTriangle}
                 alt="Blob"
