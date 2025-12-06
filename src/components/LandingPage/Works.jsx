@@ -9,25 +9,23 @@ import ThreeTriangle from "../../assets/images/three-triangle-blob.png";
 
 const Works = () => {
   const [projects, setProjects] = useState([]);
-  const [categories, setCategories] = useState(["All"]); // Start with "All" only
+  const [categories, setCategories] = useState(["All"]);
   const [visibleCount, setVisibleCount] = useState(6);
   const [selectedProject, setSelectedProject] = useState(null);
   const [activeCategory, setActiveCategory] = useState("All");
 
   const apiKey = process.env.REACT_APP_API_KEY;
 
-  // Fetch both projects and categories from the backend
   useEffect(() => {
     const fetchProjects = axios.get(`${apiKey}/projects/`);
     const fetchCategories = axios.get(`${apiKey}/categories/`);
 
     Promise.all([fetchProjects, fetchCategories])
       .then(([projectsRes, categoriesRes]) => {
-        // Normalize projects: ensure category is always an array of strings
         const normalizedProjects = projectsRes.data.map((p) => ({
           ...p,
           categoryList: Array.isArray(p.categories)
-            ? p.categories // assuming your API returns category names or IDs
+            ? p.categories
             : p.categories
               ? [p.categories]
               : [],
@@ -35,7 +33,6 @@ const Works = () => {
 
         setProjects(normalizedProjects);
 
-        // Build categories list from API, prepend "All"
         const categoryNames = categoriesRes.data.map((cat) =>
           typeof cat === "string" ? cat : cat.name || cat.title || cat.id
         );
@@ -46,7 +43,6 @@ const Works = () => {
       .catch((err) => console.error("Error fetching data:", err));
   }, [apiKey]);
 
-  // Filter projects based on selected category
   const filteredProjects =
     activeCategory === "All"
       ? projects
@@ -74,10 +70,9 @@ const Works = () => {
         className="relative z-20 text-center text-custom-darkish-blue text-4xl tablet:text-4xl laptop:text-7xl font-titillium font-black underline mb-12"
         data-aos="fade-up"
       >
-        My Works
+        Portfolio
       </h2>
 
-      {/* Category Filter Buttons */}
       <div
         className="relative z-20 flex flex-wrap justify-center gap-3 mb-12"
         data-aos="fade-up"
@@ -101,7 +96,6 @@ const Works = () => {
         ))}
       </div>
 
-      {/* Projects Grid */}
       <div
         className={`relative z-20 flex flex-wrap gap-6 ${projectCount === 1
           ? "justify-center"
@@ -156,7 +150,6 @@ const Works = () => {
         ))}
       </div>
 
-      {/* "See More" Button */}
       {visibleCount < filteredProjects.length && (
         <div className="flex justify-center mt-8">
           <button

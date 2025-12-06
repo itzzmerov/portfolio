@@ -19,6 +19,7 @@ const Navbar = () => {
                 <nav className="hidden tablet:flex space-x-6 laptop:space-x-10 items-center font-league font-medium text-base laptop:text-xl text-custom-darkish-blue">
                     <Link to="home" smooth={true} duration={500} className="cursor-pointer hover:text-custom-pink">Home</Link>
                     <Link to="about" smooth={true} duration={500} className="cursor-pointer hover:text-custom-pink">About</Link>
+                    <Link to="skills" smooth={true} duration={500} className="cursor-pointer hover:text-custom-pink">Skills</Link>
                     <Link to="portfolio" smooth={true} duration={500} className="cursor-pointer hover:text-custom-pink">Portfolio</Link>
                     <Link to="contact" smooth={true} duration={500} className="cursor-pointer hover:text-custom-pink">Contact</Link>
 
