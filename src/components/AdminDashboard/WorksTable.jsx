@@ -323,8 +323,19 @@ const WorksTable = () => {
 
       {/* Modal */}
       {showForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center overflow-y-auto z-50">
-          <div className="bg-white rounded shadow-lg p-6 w-full max-w-lg relative max-h-[90vh] overflow-y-auto">
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center overflow-y-auto z-50"
+          onClick={() => {
+            setShowForm(false);
+            setEditingId(null);
+            setImagePreviewUrl("");
+          }}
+        >
+          <div
+            className="bg-white rounded shadow-lg p-6 w-full max-w-lg relative max-h-[90vh] overflow-y-auto"
+            onClick={(e) => e.stopPropagation()}
+          >
+
             <button
               onClick={() => {
                 setShowForm(false);
