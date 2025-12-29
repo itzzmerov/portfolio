@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# 🌐 Personal Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This **Portfolio Website** is a dynamic and modern web application built to showcase my **skills, projects, and experience** as a Web Developer and Web Designer.
 
-## Available Scripts
+Unlike a typical static portfolio, this website is powered by a **Django backend**, allowing content to be **updated dynamically** without touching the front-end code. It demonstrates both **front-end design & development** and **back-end integration**.
 
-In the project directory, you can run:
+🚀 **Live Website**:  
+https://itzzmerov.netlify.app/
 
-### `npm start`
+🎨 **Figma Design**:  
+https://www.figma.com/design/igZFOOci2AXvHdY4zyzfhD/Portfolio-Website?node-id=0-1&t=xFEkGKphbUe7GruE-1
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📌 About the Project
 
-### `npm test`
+This portfolio serves as my **central professional hub**, where visitors can explore:
+- My technical skills
+- Featured projects and works
+- Personal background and experience
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+With the help of a backend system, key sections of the website can be modified dynamically, making the portfolio scalable and easy to maintain.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Core Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+✔ Dynamic content management via backend  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+✔ Editable **Hero Section** (name, positions, descriptions)  
 
-### `npm run eject`
+✔ Editable **About Section** (description, skills, info)  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+✔ Dynamic **Works / Projects Section** with filters   
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+✔ Modern and responsive UI  
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+✔ Clean and minimal design  
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+✔ REST API integration between frontend and backend  
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🧩 Technologies Used
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Frontend
+- **ReactJS** – Component-based UI development  
+- **Tailwind CSS** – Utility-first styling  
+- **Axios / Fetch API** – API communication  
 
-### Code Splitting
+### Backend
+- **Django** – Backend framework  
+- **Django REST Framework (DRF)** – API development
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Deployment & Tools
+- **Git & GitHub** – Version control  
+- **Netlify / Vercel** – Frontend deployment  
+- **PythonAnywhere** – Backend deployment
 
-### Analyzing the Bundle Size
+## 👨‍💻 Author & Portfolio
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Created by John Rovie Balingbing a.k.a. <a href="https://www.github.com/itzzmerov"> **itzzmerov** </a>,
+a freelance Frontend Developer & Ui/UX Web Designer
 
-### Making a Progressive Web App
+If you like this project, feel free to ⭐ the repository or reach out for collaboration.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+# 📄 License 
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is for educational and portfolio purposes. Redistribution without permission is restricted.
