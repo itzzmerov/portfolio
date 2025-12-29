@@ -101,7 +101,9 @@ const Works = () => {
           ? "justify-center"
           : projectCount === 2
             ? "justify-center tablet:justify-center laptop:justify-center"
-            : "justify-start tablet:justify-between laptop:justify-between"
+            : projectCount >= 4
+              ? "justify-center tablet:justify-center laptop:justify-start"
+              : "justify-center"
           }`}
       >
         {visibleProjects.map((item, index) => (
