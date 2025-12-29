@@ -374,6 +374,17 @@ const WorksTable = () => {
                 />
               </div>
 
+              <div>
+                <label>Figma Link: <span className="text-gray-400 text-sm">(optional)</span></label>
+                <input
+                  type="text"
+                  name="code_url"
+                  value={form.code_url}
+                  onChange={handleChange}
+                  className="w-full border p-2 rounded"
+                />
+              </div>
+
               {/* Category Management — CHIPS + ADD */}
               <div>
                 <label className="block mb-2">Categories:</label>
