@@ -200,7 +200,7 @@ const Works = () => {
               {selectedProject.description}
             </p>
 
-            <div className="flex justify-center">
+            <div className="flex flex-col items-center gap-3">
               <a
                 href={selectedProject.demo_url}
                 target="_blank"
@@ -209,6 +209,17 @@ const Works = () => {
               >
                 Visit Project
               </a>
+
+              {selectedProject.code_url && (
+                <a
+                  href={selectedProject.code_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-custom-dark-pink text-white px-6 py-2 rounded-xl font-semibold hover:bg-transparent hover:text-custom-dark-pink border-2 border-custom-dark-pink transition"
+                >
+                  Visit Figma Design
+                </a>
+              )}
             </div>
           </div>
         </div>
