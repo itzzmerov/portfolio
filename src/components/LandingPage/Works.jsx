@@ -125,6 +125,14 @@ const Works = () => {
                   alt={item.title}
                   className="w-full h-full object-cover rounded-lg"
                 />
+
+                {/* 🔖 FIGMA TAG */}
+                {item.code_url && (
+                  <span className="absolute bottom-3 right-3 bg-gray-500/50 text-white/80 text-xs font-semibold px-3 py-1 rounded-md shadow-md z-20">
+                    Designed in Figma
+                  </span>
+                )}
+
                 <div className="absolute inset-0 bg-black/70 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
                   <h3 className="text-white text-2xl tablet:text-3xl laptop:text-4xl font-bold font-titillium text-center px-4">
                     Click to Visit
@@ -137,16 +145,30 @@ const Works = () => {
               <p className="w-full flex items-center font-montserrat font-semibold py-3 text-sm tablet:text-base laptop:text-xl">
                 {item.title}
               </p>
-              <p className="w-full text-custom-black pb-3 text-sm tablet:text-base laptop:text-lg line-clamp-3">
+
+              <p className="w-full text-custom-black pb-3 text-sm tablet:text-base laptop:text-lg line-clamp-3 mb-3">
                 {item.description}
               </p>
 
-              <button
-                onClick={() => setSelectedProject(item)}
-                className="flex items-center text-left w-auto text-custom-darkish-blue font-semibold hover:underline hover:text-custom-pink pt-2"
-              >
-                Read More <MdOutlineKeyboardDoubleArrowRight />
-              </button>
+              <div className="flex items-center gap-3">
+                {item.code_url && (
+                  <a
+                    href={item.code_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center w-fit bg-custom-darkish-blue text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-custom-pink transition"
+                  >
+                    Figma Design Link
+                  </a>
+                )}
+
+                <button
+                  onClick={() => setSelectedProject(item)}
+                  className="flex items-center text-left w-auto text-custom-darkish-blue font-semibold hover:underline hover:text-custom-pink"
+                >
+                  Read More <MdOutlineKeyboardDoubleArrowRight />
+                </button>
+              </div>
             </div>
           </div>
         ))}
@@ -209,17 +231,6 @@ const Works = () => {
               >
                 Visit Project
               </a>
-
-              {selectedProject.code_url && (
-                <a
-                  href={selectedProject.code_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-custom-dark-pink text-white px-6 py-2 rounded-xl font-semibold hover:bg-transparent hover:text-custom-dark-pink border-2 border-custom-dark-pink transition"
-                >
-                  Visit Figma Design
-                </a>
-              )}
             </div>
           </div>
         </div>
